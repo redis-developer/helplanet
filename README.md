@@ -1,0 +1,2 @@
+# helplanet
+This application allows people to notify when an event occurs (An animal needs help, A place is full of garbage, Pollution, Dangerous place, Crime). People from their phones can create a notification on their current location (coordinates). This notification remains in place for a time, and people who pass a certain radius of the point will receive the notification. The notification will also reach a platform that allows the subscription of help groups. Which may be informed of the situation.
