@@ -1,0 +1,12 @@
+<div class="menu-item mt-2">  
+  <div class="glass" (click)="goToPath(menuobj.path)">
+    <div>      
+       <img [src]="'/assets/bg/'+menuobj.icon">       
+    </div>
+    <div>
+      <h3>
+        {{menuobj.name}}
+      </h3>
+    </div>
+  </div>
+</div>

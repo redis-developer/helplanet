@@ -1,22 +1,22 @@
-import { MenuComponent } from './menu/menu.component';
 import { TitleLogoComponent } from './../components/title-logo/title-logo.component';
 import { FooterPlanetComponent } from './../components/footer-planet/footer-planet.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { IonicModule } from '@ionic/angular';
 
+import { SessionPageRoutingModule } from './session-routing.module';
+
+import { SessionPage } from './session.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    SessionPageRoutingModule
   ],
-  declarations: [HomePage, FooterPlanetComponent, TitleLogoComponent, MenuComponent]
+  declarations: [SessionPage, FooterPlanetComponent, TitleLogoComponent]
 })
-export class HomePageModule {}
+export class SessionPageModule {}

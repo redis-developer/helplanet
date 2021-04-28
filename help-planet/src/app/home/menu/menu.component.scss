@@ -1,0 +1,35 @@
+.menu-item{
+    display: flex;
+    justify-content: center;
+}
+
+.menu-item h3{
+    color:#cccccc;
+    font-weight: bolder;
+}
+
+.menu-item>div{
+    display: flex;    
+    position:relative;
+    width:450px; height:150px;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+.menu-item>div:after{
+    content:'';
+    position:absolute;
+    left:-430px; top:-430px;
+    border-radius:100%;
+    width:120px; height:120px;
+    border:450px solid rgba(255, 255, 255, 0.123);
+}
+
+.menu-item>div div:last-child{
+    margin-left: 2rem;
+}
+
+.menu-item img{
+    width:5rem;
+    margin:2rem;    
+}
