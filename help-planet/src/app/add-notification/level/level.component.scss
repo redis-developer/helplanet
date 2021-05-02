@@ -1,0 +1,65 @@
+.level-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#bbbbbb;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    letter-spacing: 0.5rem;
+}
+
+.level-icon{    
+    height: 4rem;
+    width: 3.5rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin:0.8rem;
+}
+
+.ianimal-icon-yellow-icon{
+    background-image: url('/assets/bg/animalColor2.png');    
+}
+
+.ianimal-icon-orange-icon{
+    background-image: url('/assets/bg/animalColor1.png');    
+}
+
+.ianimal-icon-red-icon{
+    background-image: url('/assets/bg/animalColor3.png');    
+}
+
+.igarbage-icon-yellow-icon{
+    background-image: url('/assets/bg/garbage2.png');
+}
+
+.igarbage-icon-orange-icon{
+    background-image: url('/assets/bg/garbage1.png');
+}
+
+.igarbage-icon-red-icon{
+    background-image: url('/assets/bg/garbage3.png');
+}
+
+.icontamination-icon-yellow-icon{
+    background-image: url('/assets/bg/cont2.png');    
+}
+
+.icontamination-icon-orange-icon{
+    background-image: url('/assets/bg/cont1.png');    
+}
+
+.icontamination-icon-red-icon{
+    background-image: url('/assets/bg/cont3.png');    
+}
+
+.idelinquency-icon-yellow-icon{
+    background-image: url('/assets/bg/del2.png');
+}
+
+.idelinquency-icon-orange-icon{
+    background-image: url('/assets/bg/del1.png');
+}
+
+.idelinquency-icon-red-icon{
+    background-image: url('/assets/bg/del3.png');
+}

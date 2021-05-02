@@ -1,0 +1,18 @@
+.form-notification-container{
+    display: flex;
+    justify-content: center;       
+}
+
+.txt-notification{    
+    resize: none;    
+}
+
+.form-notification-container>form{
+    width: 40vw; 
+}
+
+@media (max-width: 600px) {
+    .form-notification-container>form{
+        width: 80vw; 
+    }
+}

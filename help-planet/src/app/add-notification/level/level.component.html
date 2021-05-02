@@ -1,3 +1,10 @@
-<p>
-  level works!
-</p>
+<div>  
+  <h2>Byron chooses the severity of the situation</h2>
+  <div class="level-container">    
+    <span class="indicator">(-)</span>
+    <div [ngClass]="['level-icon','i'+typeNotification+'-icon-yellow-icon']" (click)="selectLevel(0)"></div>
+    <div [ngClass]="['level-icon','i'+typeNotification+'-icon-orange-icon']" (click)="selectLevel(1)"></div>
+    <div [ngClass]="['level-icon','i'+typeNotification+'-icon-red-icon']" (click)="selectLevel(2)"></div>  
+    <span class="indicator">(+)</span>
+  </div>  
+</div>
