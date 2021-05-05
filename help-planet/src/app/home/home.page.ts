@@ -1,6 +1,7 @@
 import { MENU } from './menu/menu.component';
 import { Component } from '@angular/core';
 import MenuObjModel from '../models/menuobj.model';
+import { AuthService } from '../api/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -30,6 +31,13 @@ export class HomePage {
       icon:'icon-del.png'
     }
   ];
-  constructor() {}
+
+  constructor(
+    private authService:AuthService
+  ) {}
+
+  logoutUser(){
+    this.authService.logout();
+  }
 
 }

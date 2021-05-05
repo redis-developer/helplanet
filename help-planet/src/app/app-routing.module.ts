@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './api/auth-guard.service';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate:[AuthGuardService]
   },
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full',    
   },
   {
     path: 'session',
@@ -17,15 +19,18 @@ const routes: Routes = [
   },
   {
     path: 'notification-list',
-    loadChildren: () => import('./notification-list/notification-list.module').then( m => m.NotificationListPageModule)
+    loadChildren: () => import('./notification-list/notification-list.module').then( m => m.NotificationListPageModule),
+    canActivate:[AuthGuardService]    
   },
   {
     path: 'notification-location',
-    loadChildren: () => import('./notification-location/notification-location.module').then( m => m.NotificationLocationPageModule)
+    loadChildren: () => import('./notification-location/notification-location.module').then( m => m.NotificationLocationPageModule),
+    canActivate:[AuthGuardService]
   },
   {
     path: 'add-notification/:type',
-    loadChildren: () => import('./add-notification/add-notification.module').then( m => m.AddNotificationPageModule)
+    loadChildren: () => import('./add-notification/add-notification.module').then( m => m.AddNotificationPageModule),
+    canActivate:[AuthGuardService]
   },
 ];
 

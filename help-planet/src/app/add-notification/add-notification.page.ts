@@ -7,18 +7,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./add-notification.page.scss'],
 })
 
-export class AddNotificationPage implements OnInit {
+export class AddNotificationPage implements OnInit {  
   typeNotif: string;
-
-  constructor(private route: ActivatedRoute) {    
+  level:number;
+  constructor(private route: ActivatedRoute) {            
   }
 
   ngOnInit() {
     this.typeNotif = this.route.snapshot.paramMap.get('type');
   }
 
-  setLevel(ev:any){
-    
-  }
-
+  setLevel(ev:number){
+    this.level = ev;
+  }  
 }

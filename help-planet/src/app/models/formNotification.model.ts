@@ -5,10 +5,26 @@ export enum GRAVITY{
     ORANGE,
     RED
 };
-export interface FormNotificationModel{
-    level:GRAVITY,
-    text:string,
-    geo:{lat:string,lon:string},
-    situation:MENU,
-    idUser:string
+
+export enum STATUS{
+    ACTIVE,
+    CANCEL
+}
+
+export interface GeoModel{
+    lat:string;
+    lon:string;
+}
+
+export class FormNotificationModel{
+    id:string | null;
+    level:GRAVITY;
+    text:string;
+    geo:GeoModel;
+    situation:MENU;
+    idUser:string;
+    status:STATUS | null;
+    constructor(){};
+
+
 }
