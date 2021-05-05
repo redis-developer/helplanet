@@ -1,9 +1,14 @@
-// Byron Rosas => Session service
+import app from './service';
+import http from 'http';
+import { onInitError, onInitListenSuccess } from '../shared/utils/server.utils';
 
-import dotenv from 'dotenv';
-dotenv.config();
+export function SessionServiceInit(){
+    var port = normalizePort(process.env.PORT_SESSION || '3001');
+    app.set('port',port)
+    var server = http.createServer(app);
+    server.listen(port);
+    server.on('error',onInitError(server));    
+    server.on('listening',onInitListenSuccess('session-service'))
+}
 
-
-
-
-// console.log(`PORT session service ${process.env.PORT_SESSION}`);
+SessionServiceInit();
