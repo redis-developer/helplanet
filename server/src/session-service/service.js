@@ -4,9 +4,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import { logger } from 'morgan';
 import cookieParser from 'cookie-parser';
-import createError from 'http-errors';
 import authRouter from './routes/auth.route';
 dotenv.config();
 
@@ -42,7 +40,7 @@ var corsOptionsFunction = (req,callback)=>{
 // use cors with opt function
 app.use(cors(corsOptionsFunction));
 
-app.use(logger('dev'));
+
 app.use(helmet());
 app.use(express.json({limit:"1MB"}));
 app.use(express.urlencoded({ limit:"1MB", extended: false }));
@@ -54,7 +52,7 @@ app.use('/API/user',authRouter);
 
 
 //  handle error
-app.use(function(err,req,res,next){
+app.use((err,req,res,next)=>{
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 

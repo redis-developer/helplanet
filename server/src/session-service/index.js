@@ -1,6 +1,6 @@
 import app from './service';
 import http from 'http';
-import { onInitError, onInitListenSuccess } from '../shared/utils/server.utils';
+import { normalizePort, onInitError, onInitListenSuccess } from '../shared/utils/server.utils';
 
 export function SessionServiceInit(){
     var port = normalizePort(process.env.PORT_SESSION || '3001');

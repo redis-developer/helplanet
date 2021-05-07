@@ -1,0 +1,29 @@
+@baseURLSessionService = http://127.0.0.1:3001/API
+
+# @name login
+POST {{baseURLSessionService}}/user/login
+content-type: application/json
+
+{
+    "email":"byron@hotmail.com",
+    "password":"123456"
+}
+
+###
+
+@authToken = {{login.response.body.token}}
+
+POST {{baseURLSessionService}}/user/register
+content-type: application/json
+
+{
+    "email":"byron@hotmail.com",
+    "password":"123456",
+    "username":"byronman"
+}
+
+###
+
+GET {{baseURLSessionService}}/user/logout
+content-type: application/json
+Authorization: bearer {{authToken}}

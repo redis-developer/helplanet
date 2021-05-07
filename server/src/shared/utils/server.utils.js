@@ -8,7 +8,7 @@ export function normalizePort(valPort){
     }
     // verify if is positive
     if(_port >= 0){
-        return prompt;
+        return _port;
     }
 
     return false;
@@ -23,7 +23,7 @@ export function onInitError(service){
 
 export function onInitListenSuccess(server){
     return ()=>{
-        let dataServer = server.address();
-        console.log(dataServer);
+        let dataServer = server;
+        console.log('dataserver',dataServer);
     }
 }
