@@ -24,7 +24,7 @@ async function isAuth(req,res,next){
         // verify user exists
         const user = await userRepository.getById(idUser);
         if (!user) throw createError.NotFound('User not found');
-        
+        console.log("user auth=>",user);
         // verify account enable
         if(user.status === 0) throw createError.Unauthorized("Account is disabled"); 
 
@@ -49,7 +49,7 @@ async function isAuth(req,res,next){
 function isUserReport(req,res,next){
     try {
         const role = req.role;
-        // role 1 is reporter
+        // role 1 is reporter        
         if(role==undefined || role == null || role != 1)  throw createError.Unauthorized("Invalid role");        
 
         next();

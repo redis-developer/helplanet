@@ -4,7 +4,7 @@
   "description": "Server for Helplanet app",
   "scripts": {
     "build": "babel src --out-dir build",
-    "init-index": "node build/shared/utils/redis.init.utils.js",
+    "start": "node build/",
     "start-session": "node build/session-service/",
     "start-notification": "node build/notification-service/",
     "start-report": "node build/report-service/",

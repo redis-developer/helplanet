@@ -18,6 +18,14 @@ const redisKey = (prefix,val)=>{
 const redisPrefix = (prefix)=>{    
   return `${process.env.REDIS_KEY}:${prefix}:`;
 }
+
+// return only prefix 
+const redisOnlyPrefix = (prefix)=>{    
+  console.log("ENV",process.env.REDIS_KEY + '--' + prefix);
+  console.log("redisPREFIX",`${process.env.REDIS_KEY}:${prefix}`);
+  return `${process.env.REDIS_KEY}:${prefix}`;
+}
+
 // ************************ TRANSFORMER HSET***********************
 Redis.Command.setArgumentTransformer('hset', function (args) {
   if (args.length === 2) {
@@ -70,5 +78,6 @@ Redis.Command.setReplyTransformer("FT.SEARCH", (result) => {
 export {
     redisInstance,
     redisKey,
-    redisPrefix
+    redisPrefix,
+    redisOnlyPrefix
 };

@@ -22,7 +22,7 @@ export class FormNotificationModel{
     text:string;
     geo:GeoModel;
     situation:MENU;
-    idUser:string;
+    idUser:string | null;
     status:STATUS | null;
     constructor(){};
 

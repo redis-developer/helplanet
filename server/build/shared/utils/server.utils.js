@@ -8,7 +8,8 @@ exports.onInitError = onInitError;
 exports.onInitListenSuccess = onInitListenSuccess;
 
 function normalizePort(valPort) {
-  // convert to decimal
+  console.log("PORT =>", valPort); // convert to decimal
+
   var _port = parseInt(valPort, 10); // verify if is number
 
 

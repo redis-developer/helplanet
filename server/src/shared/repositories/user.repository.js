@@ -7,7 +7,7 @@ export default class UserRepository{
         let _user = new User();
         _user = user;              
         let id = _user.email;
-        const result = await redisInstance.hset(`${redisKey(prefix,id)}{${indexNameUsers}}`,_user)                
+        const result = await redisInstance.hset(`${redisKey(prefix,id)}`,_user)                
         await createUsersIndex();        
 
         return result;
@@ -27,6 +27,7 @@ export default class UserRepository{
     }
 
     async getById(id){
+        console.log("KEY",redisKey('users',id));
         // search by id on redis
         const result = await redisInstance.hgetall(redisKey('users',id));
 

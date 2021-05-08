@@ -34,16 +34,14 @@ function _isAuth() {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            console.log(req.headers); // verify if header authorization exists
-
             if (req.headers['authorization']) {
-              _context.next = 3;
+              _context.next = 2;
               break;
             }
 
             return _context.abrupt("return", next(_httpErrors["default"].Unauthorized()));
 
-          case 3:
+          case 2:
             // get all header authorization string
             authHeader = req.headers["authorization"]; // divide string [bearer,token]
 
@@ -52,69 +50,69 @@ function _isAuth() {
             token = bearerToken[1]; // verify if token exists
 
             if (token) {
-              _context.next = 8;
+              _context.next = 7;
               break;
             }
 
             return _context.abrupt("return", next(_httpErrors["default"].Unauthorized("No token provided")));
 
-          case 8:
-            _context.prev = 8;
-            _context.next = 11;
+          case 7:
+            _context.prev = 7;
+            _context.next = 10;
             return (0, _token.verifyToken)(token);
 
-          case 11:
+          case 10:
             tokenDecoded = _context.sent;
             idUser = tokenDecoded.aud; // verify user exists
 
-            _context.next = 15;
+            _context.next = 14;
             return userRepository.getById(idUser);
 
-          case 15:
+          case 14:
             user = _context.sent;
 
             if (user) {
-              _context.next = 18;
+              _context.next = 17;
               break;
             }
 
             throw _httpErrors["default"].NotFound('User not found');
 
-          case 18:
+          case 17:
             if (!(user.status === 0)) {
-              _context.next = 20;
+              _context.next = 19;
               break;
             }
 
             throw _httpErrors["default"].Unauthorized("Account is disabled");
 
-          case 20:
+          case 19:
             req.userId = idUser;
             req.role = user.role;
             next();
-            _context.next = 32;
+            _context.next = 31;
             break;
 
-          case 25:
-            _context.prev = 25;
-            _context.t0 = _context["catch"](8);
+          case 24:
+            _context.prev = 24;
+            _context.t0 = _context["catch"](7);
 
             if (!(_context.t0.name === 'JsonWebTokenError')) {
-              _context.next = 31;
+              _context.next = 30;
               break;
             }
 
             return _context.abrupt("return", next(_httpErrors["default"].Unauthorized()));
 
-          case 31:
+          case 30:
             return _context.abrupt("return", next(_httpErrors["default"].Unauthorized(_context.t0.message)));
 
-          case 32:
+          case 31:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[8, 25]]);
+    }, _callee, null, [[7, 24]]);
   }));
   return _isAuth.apply(this, arguments);
 }
@@ -123,6 +121,7 @@ function isUserReport(req, res, next) {
   try {
     var role = req.role; // role 1 is reporter
 
+    console.log(req);
     if (role == undefined || role == null || role != 1) throw _httpErrors["default"].Unauthorized("Invalid role");
     next();
   } catch (error) {

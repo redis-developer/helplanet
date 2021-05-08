@@ -81,10 +81,9 @@ function _removeToken() {
 
           case 2:
             result = _context2.sent;
-            console.log(result);
             return _context2.abrupt("return", result);
 
-          case 5:
+          case 4:
           case "end":
             return _context2.stop();
         }

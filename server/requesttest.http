@@ -1,4 +1,5 @@
 @baseURLSessionService = http://127.0.0.1:3001/API
+@baseURLReportService = http://127.0.0.1:3003/API
 
 # @name login
 POST {{baseURLSessionService}}/user/login
@@ -27,3 +28,16 @@ content-type: application/json
 GET {{baseURLSessionService}}/user/logout
 content-type: application/json
 Authorization: bearer {{authToken}}
+
+###
+
+POST {{baseURLReportService}}/report/add
+content-type: application/json
+Authorization: bearer {{authToken}}
+
+{
+    "level":0,
+    "text":"warning Dog",
+    "geo":{ "lat":"-0.937195", "lon":"-78.603299"},
+    "situation":"animal"
+}

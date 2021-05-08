@@ -1,4 +1,5 @@
 export function normalizePort(valPort){
+    console.log("PORT =>",valPort);
     // convert to decimal
     let _port = parseInt(valPort, 10);
 

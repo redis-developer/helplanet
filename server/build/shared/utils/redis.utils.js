@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.redisPrefix = exports.redisKey = exports.redisInstance = void 0;
+exports.redisOnlyPrefix = exports.redisPrefix = exports.redisKey = exports.redisInstance = void 0;
 
 // redis init
 var Redis = require("ioredis");
@@ -25,10 +25,17 @@ exports.redisKey = redisKey;
 
 var redisPrefix = function redisPrefix(prefix) {
   return "".concat(process.env.REDIS_KEY, ":").concat(prefix, ":");
-}; // ************************ TRANSFORMER HSET***********************
+}; // return only prefix 
 
 
 exports.redisPrefix = redisPrefix;
+
+var redisOnlyPrefix = function redisOnlyPrefix(prefix) {
+  return "".concat(process.env.REDIS_KEY, ":").concat(prefix);
+}; // ************************ TRANSFORMER HSET***********************
+
+
+exports.redisOnlyPrefix = redisOnlyPrefix;
 Redis.Command.setArgumentTransformer('hset', function (args) {
   if (args.length === 2) {
     var argArray = [];
