@@ -59,7 +59,7 @@ function isUserReport(req,res,next){
 }
 
 // verify if user is organization or collaborator
-function isUserOrganization(){
+function isUserOrganization(req,res,next){
     try {
         const role = req.role;
         // role 2 is organization or collaborator
@@ -72,7 +72,7 @@ function isUserOrganization(){
 }
 
 // verify if user is administrator
-function isAdmin(){
+function isAdmin(req,res,next){
     try {
         const role = req.role;
         // role 0 is admministrator

@@ -14,9 +14,8 @@ export default class UserRepository{
     }    
     
     async getByEmail(email){
-        // escape @
-        // const emailAddress = email.replace(/\./g, '\\.').replace(/\@/g, '\\@');
-        const emailAddress = 'byron\\@hotmail\\.com';
+        // escape @        
+        const emailAddress = email.replace(/\./g, '\\.').replace(/\@/g, '\\@');        
         
         // search by email on redis
         const result = await redisInstance.call('FT.SEARCH',indexNameUsers,`@email:{${emailAddress}}`);
@@ -26,13 +25,26 @@ export default class UserRepository{
 
     }
 
-    async getById(id){
-        console.log("KEY",redisKey('users',id));
+    async getById(id){        
         // search by id on redis
         const result = await redisInstance.hgetall(redisKey('users',id));
 
         console.log(result);
 
         return result;   
+    }
+
+    async updateByEmail(email,data){
+        const result = await redisInstance.hset(redisKey('users',email),...data);
+        console.log(result);
+
+        return result;
+    }
+
+    async getAll(minLimit,maxLimit){
+        // search all with limit
+        const result = await redisInstance.call('FT.SEARCH',indexNameUsers,'*','LIMIT',minLimit,maxLimit);
+
+        return result;
     }
 }

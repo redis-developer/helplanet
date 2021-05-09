@@ -1,5 +1,5 @@
 import Router from 'express';
-import { isAuth } from '../../shared/midlewares/auth.midleware';
+import { isAdmin, isAuth } from '../../shared/midlewares/auth.midleware';
 import UserRepository from '../../shared/repositories/user.repository';
 import * as AuthController from '../controllers';
 const router = Router();
@@ -9,6 +9,10 @@ router.post('/register',AuthController.RegisterCtrl(userRepository));
 router.post('/login',AuthController.LoginCtrl(userRepository));
 
 router.get('/logout',[isAuth],AuthController.LogoutCtrl())
+
+router.post('/set-role',[isAuth,isAdmin],AuthController.SetRoleCtrl(userRepository))
+
+router.get('/all/:page',AuthController.GetUsersCtrl(userRepository))
 
 router.post('/recovery-pass',AuthController.RecoverPasswordCtrl(userRepository))
 

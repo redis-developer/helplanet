@@ -1,12 +1,35 @@
 @baseURLSessionService = http://127.0.0.1:3001/API
 @baseURLReportService = http://127.0.0.1:3003/API
 
+
 # @name login
 POST {{baseURLSessionService}}/user/login
 content-type: application/json
 
 {
-    "email":"byron@hotmail.com",
+    "email":"byron@xyz.com",
+    "password":"root123"
+}
+
+###
+
+# @name login
+POST {{baseURLSessionService}}/user/login
+content-type: application/json
+
+{
+    "email":"byron@reporter.com",
+    "password":"123456"
+}
+
+###
+
+# @name login
+POST {{baseURLSessionService}}/user/login
+content-type: application/json
+
+{
+    "email":"byron@organization.com",
     "password":"123456"
 }
 
@@ -25,11 +48,38 @@ content-type: application/json
 
 ###
 
+POST {{baseURLSessionService}}/user/register
+content-type: application/json
+
+{
+    "email":"byron@organization.com",
+    "password":"123456",
+    "username":"byronman"
+}
+
+###
+
+POST {{baseURLSessionService}}/user/set-role
+content-type: application/json
+
+{
+    "email":"byron@hotmail.com",
+    "role":2,    
+}
+
+###
+
 GET {{baseURLSessionService}}/user/logout
 content-type: application/json
 Authorization: bearer {{authToken}}
 
 ###
+
+GET {{baseURLSessionService}}/user/all/0
+content-type: application/json
+Authorization: bearer {{authToken}}
+
+#######################################################################################
 
 POST {{baseURLReportService}}/report/add
 content-type: application/json
