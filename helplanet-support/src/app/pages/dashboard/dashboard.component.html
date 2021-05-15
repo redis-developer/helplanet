@@ -1,1 +1,14 @@
-<p>dashboard works!</p>
+<app-dashboard-org *ngIf="role==2; else administration"></app-dashboard-org>
+<ng-template #administration>
+    <button type="button" (click)="logout()">
+        Logout
+    </button>
+    <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="Organizations">
+            <app-dashboard-org></app-dashboard-org>
+        </mat-tab>
+        <mat-tab label="Admininistration">
+            <app-dashboard-admin></app-dashboard-admin>
+        </mat-tab>    
+    </mat-tab-group>    
+</ng-template>

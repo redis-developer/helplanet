@@ -89,7 +89,7 @@ Authorization: bearer {{authToken}}
 
 {
     "level":0,
-    "text":"warning Dog",
+    "text":"warning ---PO--Dog",
     "geo":{ "lat":"-0.937195", "lon":"-78.603299"},
     "situation":"animal"
 }

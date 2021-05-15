@@ -1,10 +1,11 @@
+import dotenv from 'dotenv';
 // redis init
 const Redis = require("ioredis");
 const redisInstance = new Redis();
-
+dotenv.config();
 // return key format for redis db
 const redisKey = (prefix,val)=>{
-  console.log("REDIS KEY",prefix+"/"+val);
+  
     return `${process.env.REDIS_KEY}:${prefix}:${val}`;
 }
 
@@ -20,7 +21,7 @@ const redisOnlyPrefix = (prefix)=>{
 
 // ************************ TRANSFORMER HSET***********************
 Redis.Command.setArgumentTransformer('hset', function (args) {
-  console.log("length",args.length);
+  
   if (args.length === 2) {
     const argArray = [];
 
@@ -32,7 +33,7 @@ Redis.Command.setArgumentTransformer('hset', function (args) {
     for (const fieldName in fieldNameValuePairs) {
       argArray.push(fieldName, fieldNameValuePairs[fieldName]);
     }
-    console.log("arg",argArray);
+    
     return argArray;
   }else if(args.length === 4){    
     const argArray = [];
@@ -49,7 +50,7 @@ Redis.Command.setArgumentTransformer('hset', function (args) {
     argArray.push(args[2]);
     argArray.push(args[3]);
 
-    console.log("return args",argArray);
+    
     return argArray;    
   }
 

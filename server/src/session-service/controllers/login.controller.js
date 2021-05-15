@@ -23,7 +23,7 @@ function LoginCtrl(userPersistence){
             // generate token            
             const token = await signToken(user.email);
 
-            res.json({token:token,username:user.username,role:user.role});
+            res.json({token:token,username:user.username,role:user.role, email:user.email});
 
         } catch (error) {
             console.log(error);

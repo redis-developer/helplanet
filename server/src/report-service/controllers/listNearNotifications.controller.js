@@ -8,8 +8,7 @@ function ListNearNotificationsCtrl(notificationPersistence){
                 lon,
                 lat
             } = req.params;            
-            let result = await notificationPersistence.getNear(lon,lat);
-            console.log("near",result);
+            let result = await notificationPersistence.getNear(lon,lat);            
             res.json(result);
         } catch (error) {
             console.log(error);

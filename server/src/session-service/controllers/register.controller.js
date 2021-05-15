@@ -19,7 +19,7 @@ function RegisterCtrl(userPersistence){
             const token = await signToken(user.email);
             
             // response
-            res.json({token, username:user.username, role:user.role});
+            res.json({token, username:user.username, role:user.role, email:user.email});
 
         } catch (error) {
             console.log(error);

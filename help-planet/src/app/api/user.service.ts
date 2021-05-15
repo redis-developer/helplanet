@@ -5,7 +5,7 @@ import { User } from '../models/user.dto';
 import { catchError } from 'rxjs/operators';
 import { Observable, of, throwError } from 'rxjs';
 import { Login } from '../models/login.dto';
-const URL_SERVICE = `${environment.backendURLSession}/user`;
+const URL_SERVICE = `${environment.backendURLReport}/report`;
 
 @Injectable({
   providedIn: 'root'

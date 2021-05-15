@@ -1,4 +1,133 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~leaflet/dist/leaflet.css";
+
+
+@font-face {   
+    font-family: 'Roboto';   
+    src: url('/assets/fonts/Roboto/Roboto-Thin.ttf');    
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.mt-2{
+    margin-top: 2rem;
+}
+.container-main {
+    min-height: 100%; 
+    position:relative;
+    margin:0px;
+    padding:0px;
+}
+
+.scroll-intern{
+    height:70vh;    
+    overflow-y:scroll;
+}
+  
+
+.glass{
+    background: rgba( 167, 167, 167, 0 );
+    box-shadow: 0 8px 32px 0 rgba(135, 119, 31, 0.158);
+    backdrop-filter: blur( 5.5px );
+    -webkit-backdrop-filter: blur( 5.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+
+h1{
+    font-family: Roboto;
+    font-size: 3rem;
+    color:#ccc;    
+}
+
+.content {
+    background: url('/assets/bg/backgroundGradient.PNG') repeat-x 100% 100% / contain;    
+}
+
+
+.planet{
+    position: absolute;
+    bottom: 0;      
+}
+
+.planet>img{
+    width: 100vw;    
+    height: 30vh;
+    object-fit:none;
+    object-position:top;
+}
+
+.items-on-planet{
+    display: flex;    
+    position:absolute;
+    bottom: 23vh;
+    left: 50vw;    
+    margin-left:-160.625px;
+}
+
+#sprite-image-sun {
+    height: 65vh;
+    width: 100%; 
+    position:absolute;
+    bottom:0;    
+    background: url('/assets/bg/sun.png');    
+    background-size: cover;    
+}
+
+.f-flex{
+    display: flex;
+    justify-content: center;
+}
+
+#sprite-image-roc1 {
+    height: 89.125px;
+    width: 93.5px; 
+    margin-top: 50px;      
+    background: url('/assets/bg/roc1.png');    
+    background-size: cover;    
+}
+
+
+#sprite-image-roc2 {
+    height: 89.125px;
+    width: 93.5px; 
+    margin-top: 50px;         
+    background: url('/assets/bg/roc2.png');    
+    background-size: cover;    
+}
+
+
+#sprite-image-boy {
+    height: 116.25px;
+    width: 86.31px;     
+    background: url('/assets/bg/boy.png');
+    
+      background-size: cover;
+    animation: playBoy 15s steps(2) infinite;
+  }
+  @keyframes playBoy {
+    100% {
+      background-position: -170px;
+    }
+  }
+
+
+  #sprite-image-animal1 {
+    height: 77px;
+    width: 67.125px;
+    margin-top: 40px;
+    background: url('/assets/bg/animal1.png') no-repeat;
+    
+      background-size: cover;
+    animation: playAnimal1 2s steps(2) infinite;
+  }
+  @keyframes playAnimal1 {
+    100% {
+      background-position: -159px;
+    }
+  }
+

@@ -12,30 +12,39 @@ export async function NotificationServiceInit(){
     var server = http.createServer(app);
 
     //io app
-    let io = socketIO(server);
+    let io = socketIO(server, {
+        cors: {
+            origin: '*',
+        }
+    });
     server.listen(port);
     server.on('error',onInitError(server));    
     server.on('listening',onInitListenSuccess('notification-service'))
 
-    // io events
-    while (true) {
-        /* eslint-enable */
+    io.on('connection',async (socket)=>{
+        console.log('connection - io');        
+        // io events
+        while (true) {
+            /* eslint-enable */
 
-        /* eslint-disable no-await-in-loop */
-        const response = await redisInstance.xread('COUNT', '1', 'BLOCK', '5000', 'STREAMS', 'hpa:report', '$');
-        if(response){
-            let data = [];
-            data = xreadTransformResult(response);
-            console.log('res=>',data); 
-            data.forEach(element => {
-                const  notificationPersistence = new NotificationRepository();
-                const ioSocketService = new SocketService(io);       
-                NotificationController.SaveNotificationCtrl(notificationPersistence)(element);
-                NotificationController.SendNewReportCtrl(ioSocketService,notificationPersistence)(element);
-            });
-        }        
+            /* eslint-disable no-await-in-loop */
+            const response = await redisInstance.xread('COUNT', '1', 'BLOCK', '5000', 'STREAMS', 'hpa:report', '$');            
+            if(response){
+                socket.emit("test-ev","Hello from socket");
+                let data = [];
+                data = xreadTransformResult(response);
+                console.log('res=>',data); 
+                data.forEach(element => {                    
+                    const  notificationPersistence = new NotificationRepository();
+                    const ioSocketService = new SocketService(socket);       
+                    NotificationController.SaveNotificationCtrl(notificationPersistence)(element);
+                    NotificationController.SendNewReportCtrl(ioSocketService,notificationPersistence)(element);
+                });
+            }        
 
-    }    
+        } 
+    });
+       
 }
 
 NotificationServiceInit();

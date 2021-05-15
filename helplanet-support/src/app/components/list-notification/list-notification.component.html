@@ -1,0 +1,24 @@
+<div>
+    <h3 class="margint">
+        {{title}}
+    </h3>
+    <div>
+        <ng-container *ngIf="!isRealTime else listRealTime">
+            <h3 *ngIf="data == null else list">
+                Loading...
+            </h3>
+            <ng-template #list >                    
+                <app-item-notification *ngFor="let result of data" [data] = "result" [userOrg]="userOrg"></app-item-notification>                
+                <button *ngIf="showButton" type="button" (click)="addData()">Show more</button>
+            </ng-template>
+        </ng-container>
+        <ng-template #listRealTime>            
+            <h3 *ngIf="dataRealTime.length == 0 else listRealTime">
+                You don't have notifications 
+            </h3>
+            <ng-template #listRealTime >                    
+                <app-item-notification *ngFor="let result of dataRealTime" [data] = "result" [userOrg]="userOrg"></app-item-notification>                
+            </ng-template>
+        </ng-template>
+    </div>
+</div>

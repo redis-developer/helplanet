@@ -4,9 +4,7 @@ import { removeToken } from "../../shared/utils/token.utils";
 function LogoutCtrl(){        
     return async (req,res,next)=>{
         try {
-            const userId = req.userId;
-            //console.log(userId);
-            // remove token on redis
+            const userId = req.userId;            
             const removed = await removeToken(userId);
             
             // response

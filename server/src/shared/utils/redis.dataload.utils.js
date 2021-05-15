@@ -11,7 +11,7 @@ export async function LoadAdministrator(){
     // verify if user exists
     if(result.length === 0){
         // if user doesnt exist create
-        console.log("adding admin");
+        
         // load administrator
         const admin = new User();    
         admin.email = email;

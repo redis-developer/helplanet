@@ -1,1 +1,31 @@
-<p>item-notification works!</p>
+<div>    
+    
+</div>
+
+<div class="menu-item mt-2" >  
+    <div class="glass" (click)="goToMap()">
+      <div>      
+         <img [src]="'/assets/bg/'+getImage(data.level,data.situation)">       
+      </div>
+      <div>
+        <div >
+          <h3>
+           {{data.situation}}                             
+          </h3>
+          <p>
+            {{data.text}}
+          </p>
+          <p>            
+            {{data.userOrg ? 'Attend' : 'Not Attend'}}              
+          </p>
+        </div>
+  
+      </div>
+    </div>    
+    <button *ngIf="userOrg==data.userOrg" type="button" (click)="cancel()" shape="round">
+     Cancel
+    </button>    
+    <button *ngIf="!data.userOrg || data.userOrg == ''" type="button" (click)="attend()" shape="round">
+      Attend
+    </button>       
+  </div>

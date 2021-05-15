@@ -4,76 +4,74 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpErrorResponse
+  HttpErrorResponse,
+  HttpHeaders
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-
+import { AuthService } from '../services/auth.service';
+const LOGIN_INF = 'login_inf';
 @Injectable()
 export class TokenInterceptorInterceptor implements HttpInterceptor {
 
-  token
+  token:any;
 
   constructor(private auth: AuthService) {
 
   }
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {    
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const headers = new HttpHeaders(
       {
-        'Content-Type': 'application/json'        
+        'Content-Type': 'application/json'
       }
     );
     req = req.clone(
       {
         headers
       }
-    ); 
-            
-    if(!this.auth.isAuth()){
+    );
+    
+    if (!this.auth.isAuth()) {      
       return next.handle(req)
         .pipe(
           catchError(this.handleError)
         );
     }
-    return from(this.auth.getStorage()
-    .then(
-      (data) => {
-        //data storage
-        if (data) {
-          this.token = data.token;
-          if (this.token) {    
 
-            req = req.clone({
-              setHeaders:{
-                'Authorization': `bearer ${this.token}`
-              }
-            });    
-          
-
-        }
-
-        return next.handle(req)
-        .pipe(
-          catchError(this.handleError)
-        ).toPromise(); 
-        }
+    let data = JSON.parse(localStorage.getItem(LOGIN_INF) ?? "{}")
+    
+    if (data != {}) {      
+      this.token = data.token;      
+      if (this.token) {        
+        req = req.clone({
+          setHeaders: {
+            'Authorization': `bearer ${this.token}`
+          }
+        });
       }
-    )
-    .catch((err)=>{
-      console.log("error req",err);
-      return next.handle(req)
-        .pipe(
-          catchError(this.handleError)
-        ).toPromise(); 
-    })
-    );
+    }
+
+    return next.handle(req)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
 
   // handle error
-  handleError(error: HttpErrorResponse) {
-    console.log("ERROR=>",error);
+  private handleError(error: HttpErrorResponse) {
+    console.log("ERROR=>", error);
+    if(error.status){
+      if(error.status==401){    
+        localStorage.clear();  
+        return throwError(error.message);  
+      }      
+    }
+    if(!error.error.error) {
+      console.log("ERROR unknow=>", error.message);
+      return throwError(error.message);
+    }
     return throwError(error.error.error);
   }
 }

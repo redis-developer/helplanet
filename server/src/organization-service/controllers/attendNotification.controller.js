@@ -4,18 +4,18 @@ import createError from "http-errors";
 function AttendNotificationCtrl(notificationPersistence){            
     return async (req,res,next)=>{
         try {
-
-            const userId = req.userId;
+            
+            const userOrg = req.email;
+       
             const {                
                 id                            
             } = req.params;
             
 
-            let data = await notificationPersistence.getOneStream(userId);
+            let data = await notificationPersistence.getOne(id);
 
-            if(data.length==0) throw createError.NotFound("Data not found");
-            console.log("notification data",data);
-            // TODO await notificationPersistence.attendNotification(data[0]);
+            if(data==null) throw createError.NotFound("Data not found")            
+            await notificationPersistence.attendNotification(id,data, userOrg);
 
             res.json(data[0]);
 

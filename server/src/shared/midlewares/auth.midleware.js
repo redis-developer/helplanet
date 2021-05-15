@@ -51,7 +51,7 @@ function isUserReport(req,res,next){
     try {
         const role = req.role;
         // role 1 is reporter        
-        if(role==undefined || role == null || role != 1)  throw createError.Unauthorized("Invalid role");        
+        if(role==undefined || role == null)  throw createError.Unauthorized("Invalid role");        
 
         next();
     } catch (error) {
@@ -62,9 +62,9 @@ function isUserReport(req,res,next){
 // verify if user is organization or collaborator
 function isUserOrganization(req,res,next){
     try {
-        const role = req.role;
+        const role = req.role;        
         // role 2 is organization or collaborator
-        if(role==undefined || role == null || role != 2)  throw createError.Unauthorized("Invalid role");        
+        if(role==undefined || role == null || role == 1)  throw createError.Unauthorized("Invalid role");        
 
         next();
     } catch (error) {
@@ -75,9 +75,9 @@ function isUserOrganization(req,res,next){
 // verify if user is administrator
 function isAdmin(req,res,next){
     try {
-        const role = req.role;
+        const role = req.role;             
         // role 0 is admministrator
-        if(role==undefined || role == null || role == 0)  throw createError.Unauthorized("Invalid role");        
+        if(role==undefined || role == null || role != 0)  throw createError.Unauthorized("Invalid role");        
 
         next();
     } catch (error) {

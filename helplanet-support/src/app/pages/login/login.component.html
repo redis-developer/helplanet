@@ -1,1 +1,44 @@
-<p>login works!</p>
+<div class="container-main content">
+    <app-title-logo></app-title-logo>
+  
+    <div class="ion-hide-md-down">    
+      <form id="login" [formGroup]="frmLogin" (ngSubmit)="loginUser()">
+        <div class="inline-form">
+          <div>
+            <label position="stacked">Email</label>
+            <input formControlName="email" type="email" placeholder="Email">
+            <div *ngIf="f.email.errors && (f.email.dirty || f.email.touched)" >
+              <div *ngIf="f.email.errors.required" class="text-danger">
+                Email is required
+              </div>
+              <div *ngIf="f.email.errors.email" class="text-danger">
+                Email is not valid
+              </div>
+            </div>
+          </div>
+          <div>
+            <label position="stacked">Password</label>
+            <input formControlName="password" type="password" placeholder="******">
+            <div *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
+              <div *ngIf="f.password.errors.required" class="text-danger">
+                Password is required
+              </div>
+              <div *ngIf="f.password.errors.minlength" class="text-danger">
+                  Min 6 characters
+              </div>
+              <div *ngIf="f.password.errors.maxlength" class="text-danger">
+                  Max 255 characters
+              </div>
+            </div>
+          </div>                    
+        </div>      
+        <div class="inline-form">
+          <button type="submit" [disabled]="!frmLogin.valid">Log in</button>
+          <button (click)="goToRegister()">Register</button>
+        </div>      
+      </form>
+    </div>  
+  
+    <app-footer-planet></app-footer-planet>
+  </div>
+  
