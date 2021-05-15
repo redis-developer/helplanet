@@ -1,10 +1,21 @@
 <ion-content [fullscreen]="true" class="container-main">  
     <h1>
-      Hola<br/>
-      Byron
+      Hi<br/>
+      {{username}}
     </h1>     
     <app-footer-planet></app-footer-planet>    
     <div class="scroll-intern">
       <app-menu *ngFor="let menu of menuArr" [menuobj]="menu"></app-menu>  
+    </div>
+    <div class="menu">      
+      <ion-item>
+        <ion-icon name="map-outline" (click)="goTo('notification-location')"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="list-outline" (click)="goTo('notification-list')"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="log-out-outline" (click)="logoutUser()"></ion-icon>
+      </ion-item>
     </div>
 </ion-content>

@@ -1,6 +1,8 @@
 @baseURLSessionService = http://127.0.0.1:3001/API
 @baseURLReportService = http://127.0.0.1:3003/API
 
+@baseURLOrganizationService = http://127.0.0.1:3002/API
+
 
 # @name login
 POST {{baseURLSessionService}}/user/login
@@ -91,3 +93,40 @@ Authorization: bearer {{authToken}}
     "geo":{ "lat":"-0.937195", "lon":"-78.603299"},
     "situation":"animal"
 }
+
+####
+
+GET {{baseURLReportService}}/report/near/-78.603299/-0.937195
+content-type: application/json
+Authorization: bearer {{authToken}}
+
+
+###
+
+GET {{baseURLReportService}}/report/list-all/2021-05-10/2021-05-11
+content-type: application/json
+Authorization: bearer {{authToken}}
+
+###
+
+POST {{baseURLOrganizationService}}/organization/attend-notification/:id
+content-type: application/json
+Authorization: bearer {{authToken}}
+
+###
+
+POST {{baseURLOrganizationService}}/organization/cancel-attention/:id
+content-type: application/json
+Authorization: bearer {{authToken}}
+
+###
+
+GET {{baseURLOrganizationService}}/organization/attentions
+content-type: application/json
+Authorization: bearer {{authToken}}
+
+###
+
+DELETE http://127.0.0.1:3003/API/report/cancel/hpa:notifications:1621032311237-0
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjEwMzAzOTMsImV4cCI6MTYyMTExNjc5MywiYXVkIjoiaGVjdG9yQGguY29tIiwiaXNzIjoiMTI3LjAuMC4xIn0.Dlcw-AMxJ3cnAK8HxI5N8DM3zXOHMhuemThAZoJW7EQ

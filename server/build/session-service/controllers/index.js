@@ -29,6 +29,18 @@ Object.defineProperty(exports, "LogoutCtrl", {
     return _logout["default"];
   }
 });
+Object.defineProperty(exports, "SetRoleCtrl", {
+  enumerable: true,
+  get: function get() {
+    return _setRole["default"];
+  }
+});
+Object.defineProperty(exports, "GetUsersCtrl", {
+  enumerable: true,
+  get: function get() {
+    return _getUsers["default"];
+  }
+});
 
 var _login = _interopRequireDefault(require("./login.controller"));
 
@@ -37,3 +49,7 @@ var _recoverPassword = _interopRequireDefault(require("./recover-password.contro
 var _register = _interopRequireDefault(require("./register.controller"));
 
 var _logout = _interopRequireDefault(require("./logout.controller"));
+
+var _setRole = _interopRequireDefault(require("./setRole.controller"));
+
+var _getUsers = _interopRequireDefault(require("./getUsers.controller"));

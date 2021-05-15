@@ -4,16 +4,17 @@ import { redisInstance, redisKey } from "../utils/redis.utils";
 const prefix = 'users';
 export default class UserRepository{
     async save(user){
+        
         let _user = new User();
         _user = user;              
-        let id = _user.email;
+        let id = _user.email;        
         const result = await redisInstance.hset(`${redisKey(prefix,id)}`,_user)                
         await createUsersIndex();        
 
         return result;
     }    
     
-    async getByEmail(email){
+    async getByEmail(email){        
         // escape @        
         const emailAddress = email.replace(/\./g, '\\.').replace(/\@/g, '\\@');        
         
@@ -25,18 +26,15 @@ export default class UserRepository{
 
     }
 
-    async getById(id){        
+    async getById(id){                
         // search by id on redis
-        const result = await redisInstance.hgetall(redisKey('users',id));
-
-        console.log(result);
+        const result = await redisInstance.hgetall(redisKey('users',id));        
 
         return result;   
     }
 
     async updateByEmail(email,data){
-        const result = await redisInstance.hset(redisKey('users',email),...data);
-        console.log(result);
+        const result = await redisInstance.hset(redisKey('users',email),...data);        
 
         return result;
     }

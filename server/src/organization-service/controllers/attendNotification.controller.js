@@ -7,16 +7,17 @@ function AttendNotificationCtrl(notificationPersistence){
 
             const userId = req.userId;
             const {                
-                level,//gravity    (0) YELLOW, (1) ORANGE, (2) RED
-                text,
-                geo,//{lat,lon}
-                situation,                            
-            } = req.body;
+                id                            
+            } = req.params;
+            
 
-            console.log(req.body);
-            await notificationPersistence.addStream({level,text,geo,situation, userId});
+            let data = await notificationPersistence.getOneStream(userId);
 
-            res.json({});
+            if(data.length==0) throw createError.NotFound("Data not found");
+            console.log("notification data",data);
+            // TODO await notificationPersistence.attendNotification(data[0]);
+
+            res.json(data[0]);
 
         } catch (error) {
             console.log(error);

@@ -7,13 +7,12 @@ function AddNotificationCtrl(notificationPersistence){
 
             const userId = req.userId;
             const {                
-                level,//gravity    (0) YELLOW, (1) ORANGE, (2) RED
-                text,
+                level,//gravity    (0) YELLOW, (1) ORANGE, (2) RED                
                 geo,//{lat,lon}
-                situation,                            
+                situation, 
+                text                           
             } = req.body;
-
-            console.log(req.body);
+            
             await notificationPersistence.addStream({level,text,geo,situation, userId});
 
             res.json({});

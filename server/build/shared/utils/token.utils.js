@@ -109,25 +109,23 @@ function _verifyToken() {
 
           case 2:
             decoded = _context3.sent;
-            console.log(token, decoded); // verify if exists on db
-
-            _context3.next = 6;
+            _context3.next = 5;
             return _redis.redisInstance.get((0, _redis.redisKey)('session', decoded.aud));
 
-          case 6:
+          case 5:
             result = _context3.sent;
 
             if (result) {
-              _context3.next = 9;
+              _context3.next = 8;
               break;
             }
 
             throw _httpErrors["default"].Unauthorized();
 
-          case 9:
+          case 8:
             return _context3.abrupt("return", decoded);
 
-          case 10:
+          case 9:
           case "end":
             return _context3.stop();
         }

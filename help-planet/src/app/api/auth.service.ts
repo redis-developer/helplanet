@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { Platform, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 import { BehaviorSubject } from 'rxjs';
+import { Login } from '../models/login.dto';
+import { User } from '../models/user.dto';
+import { UserService } from './user.service';
 
 const LOGIN_INF = 'login_inf';
 
@@ -13,6 +16,7 @@ export class AuthService {
 
 
   loginState = new BehaviorSubject(false);
+  tokenState = new BehaviorSubject(null);
   private _storage:Storage | null = null;
 
 
@@ -20,9 +24,11 @@ export class AuthService {
     private storage:Storage,
     private router:Router,
     public toastCtrl:ToastController,
-    private platform:Platform,    
+    private platform:Platform, 
+    private userService:UserService,      
 
-  ) {     
+  ) {  
+       
     this.platform.ready()
     .then(
       ()=>{        
@@ -49,40 +55,80 @@ export class AuthService {
         if(response){
           // emit true if user is logged in
           this.loginState.next(true);
+          this.tokenState.next(response.token);
         }
       }
     );
   }
 
   // login user in app
-  login(){
-    // TODO call user service for connect with server
-    
-    let test_res={
-      user_id:'555',
-      user_name:'test'
-    };
-
-    this.storage?.set(LOGIN_INF,test_res)
-    .then(
-      (response)=>{
-        // navigate to home
-        this.router.navigate(['home']);
-        // emit state true for login
-        this.loginState.next(true);
+  login({email,password}:Partial<Login>){
+    // call user service for connect with server
+    this.userService.initSession({email,password})
+    .subscribe(
+      (res:Partial<User>)=>{
+        console.log(res);
+        this.storage?.set(LOGIN_INF,JSON.stringify(res))
+        .then(
+          (response)=>{
+            // navigate to home
+            this.router.navigate(['home']);
+            // emit state true for login
+            this.loginState.next(true);
+          }
+        );
+      },
+      async (err)=>{        
+        console.log("Err=>",err);
+        let t = await this.createToast(`(${err.status}) - ${err.message}`);
+        t.present();
       }
     );
+        
+  }
+
+
+  // login user in app
+  register({email,username,password}:Partial<User>){
+    // call user service for connect with server
+    this.userService.register({email,username,password})
+    .subscribe(
+      (res:Partial<User>)=>{
+        console.log(res);
+        this.storage?.set(LOGIN_INF,JSON.stringify(res))
+        .then(
+          (response)=>{
+            // navigate to home
+            this.router.navigate(['home']);
+            // emit state true for login
+            this.loginState.next(true);
+          }
+        );
+      },
+      async (err)=>{        
+        console.log("Err=>",err);
+        let t = await this.createToast(`(${err.status}) - ${err.message}`);
+        t.present();
+      }
+    );
+        
   }
 
   // logout user
   logout(){
-    this.storage?.remove(LOGIN_INF)
-    .then(
+    this.userService.outSession()
+    .subscribe(
       ()=>{
-        // navigate to login
-        this.router.navigate(['session']);
-        // emit state false for login
-        this.loginState.next(false); 
+        this.storage?.remove(LOGIN_INF)
+        .then(
+          ()=>{
+            // navigate to login
+            this.router.navigate(['session']);
+            // emit state false for login
+            this.loginState.next(false); 
+            this.tokenState.next(null);
+          }
+        );
       }
     );
   }
@@ -93,6 +139,23 @@ export class AuthService {
     return this.loginState.value;
   }
 
+  getToken(){
+    return this.tokenState.value;
+  }
+
+  async getStorage(){
+    return JSON.parse(await this._storage.get(LOGIN_INF)); 
+  }
+
+
+  private async createToast(data):Promise<HTMLIonToastElement>{
+    const toast:HTMLIonToastElement = await this.toastCtrl.create({
+      message: data,
+      duration: 8000
+    });
+
+    return toast;
+  }
 
 
 }

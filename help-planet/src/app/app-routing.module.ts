@@ -32,6 +32,14 @@ const routes: Routes = [
     loadChildren: () => import('./add-notification/add-notification.module').then( m => m.AddNotificationPageModule),
     canActivate:[AuthGuardService]
   },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'show-notification/:data',
+    loadChildren: () => import('./show-notification/show-notification.module').then( m => m.ShowNotificationPageModule)
+  },
 ];
 
 @NgModule({

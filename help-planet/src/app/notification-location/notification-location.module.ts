@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { NotificationLocationPageRoutingModule } from './notification-location-routing.module';
 
 import { NotificationLocationPage } from './notification-location.page';
+import { ItemMapComponent } from '../components/item-map/item-map.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { NotificationLocationPage } from './notification-location.page';
     IonicModule,
     NotificationLocationPageRoutingModule
   ],
-  declarations: [NotificationLocationPage]
+  declarations: [NotificationLocationPage, ItemMapComponent]
 })
 export class NotificationLocationPageModule {}

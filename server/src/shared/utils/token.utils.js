@@ -31,7 +31,7 @@ async function verifyToken(token){
 
     // verify token
     const decoded = await Jwt.verify(token,process.env.SECRET_TOKEN);   
-    console.log(token,decoded);
+    
     // verify if exists on db
     const result = await redisInstance.get(redisKey('session',decoded.aud));
 

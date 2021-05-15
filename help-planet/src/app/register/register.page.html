@@ -1,0 +1,55 @@
+<ion-content class="container-main" [fullscreen]="true">
+  <app-title-logo></app-title-logo>
+
+  <div class="ion-hide-md-down">    
+    <form id="login" [formGroup]="frmRegister" (ngSubmit)="registerUser()">
+      <div class="inline-form">
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <input formControlName="email" type="email" placeholder="Email">
+          <div *ngIf="f.email.errors && (f.email.dirty || f.email.touched)" >
+            <div *ngIf="f.email.errors.required" class="text-danger">
+              Email is required
+            </div>
+            <div *ngIf="f.email.errors.email" class="text-danger">
+              Email is not valid
+            </div>
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Username</ion-label>
+          <input formControlName="username" type="text" placeholder="username">
+          <div *ngIf="f.username.errors && (f.username.dirty || f.username.touched)" >
+            <div *ngIf="f.username.errors.required" class="text-danger">
+              Username is required
+            </div>
+            <div *ngIf="f.username.errors.maxlength" class="text-danger">
+              Max 255 characters
+            </div>
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Password</ion-label>
+          <input formControlName="password" type="password" placeholder="******">
+          <div *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
+            <div *ngIf="f.password.errors.required" class="text-danger">
+              Password is required
+            </div>
+            <div *ngIf="f.password.errors.minlength" class="text-danger">
+                Min 6 characters
+            </div>
+            <div *ngIf="f.password.errors.maxlength" class="text-danger">
+                Max 255 characters
+            </div>
+          </div>
+        </ion-item>                    
+      </div>      
+      <div class="inline-form">
+        <ion-button type="submit" [disabled]="!frmRegister.valid">Register</ion-button>
+        <ion-button (click)="goToLogin()">Log in</ion-button>        
+      </div>      
+    </form>
+  </div>  
+
+  <app-footer-planet></app-footer-planet>
+</ion-content>

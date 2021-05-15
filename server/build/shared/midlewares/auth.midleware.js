@@ -119,9 +119,8 @@ function _isAuth() {
 
 function isUserReport(req, res, next) {
   try {
-    var role = req.role; // role 1 is reporter
+    var role = req.role; // role 1 is reporter        
 
-    console.log(req);
     if (role == undefined || role == null || role != 1) throw _httpErrors["default"].Unauthorized("Invalid role");
     next();
   } catch (error) {
@@ -130,7 +129,7 @@ function isUserReport(req, res, next) {
 } // verify if user is organization or collaborator
 
 
-function isUserOrganization() {
+function isUserOrganization(req, res, next) {
   try {
     var role = req.role; // role 2 is organization or collaborator
 
@@ -142,7 +141,7 @@ function isUserOrganization() {
 } // verify if user is administrator
 
 
-function isAdmin() {
+function isAdmin(req, res, next) {
   try {
     var role = req.role; // role 0 is admministrator
 

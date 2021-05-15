@@ -9,6 +9,8 @@ exports["default"] = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
+var _toConsumableArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));
+
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
@@ -42,7 +44,7 @@ var UserRepository = /*#__PURE__*/function () {
                 _user = user;
                 id = _user.email;
                 _context.next = 5;
-                return _redis.redisInstance.hset("".concat((0, _redis.redisKey)(prefix, id), "{").concat(_redisInit.indexNameUsers, "}"), _user);
+                return _redis.redisInstance.hset("".concat((0, _redis.redisKey)(prefix, id)), _user);
 
               case 5:
                 result = _context.sent;
@@ -75,9 +77,8 @@ var UserRepository = /*#__PURE__*/function () {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                // escape @
-                // const emailAddress = email.replace(/\./g, '\\.').replace(/\@/g, '\\@');
-                emailAddress = 'byron\\@hotmail\\.com'; // search by email on redis
+                // escape @        
+                emailAddress = email.replace(/\./g, '\\.').replace(/\@/g, '\\@'); // search by email on redis
 
                 _context2.next = 3;
                 return _redis.redisInstance.call('FT.SEARCH', _redisInit.indexNameUsers, "@email:{".concat(emailAddress, "}"));
@@ -114,10 +115,9 @@ var UserRepository = /*#__PURE__*/function () {
 
               case 2:
                 result = _context3.sent;
-                console.log(result);
                 return _context3.abrupt("return", result);
 
-              case 5:
+              case 4:
               case "end":
                 return _context3.stop();
             }
@@ -130,6 +130,66 @@ var UserRepository = /*#__PURE__*/function () {
       }
 
       return getById;
+    }()
+  }, {
+    key: "updateByEmail",
+    value: function () {
+      var _updateByEmail = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(email, data) {
+        var result;
+        return _regenerator["default"].wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return _redis.redisInstance.hset.apply(_redis.redisInstance, [(0, _redis.redisKey)('users', email)].concat((0, _toConsumableArray2["default"])(data)));
+
+              case 2:
+                result = _context4.sent;
+                return _context4.abrupt("return", result);
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }));
+
+      function updateByEmail(_x4, _x5) {
+        return _updateByEmail.apply(this, arguments);
+      }
+
+      return updateByEmail;
+    }()
+  }, {
+    key: "getAll",
+    value: function () {
+      var _getAll = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(minLimit, maxLimit) {
+        var result;
+        return _regenerator["default"].wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return _redis.redisInstance.call('FT.SEARCH', _redisInit.indexNameUsers, '*', 'LIMIT', minLimit, maxLimit);
+
+              case 2:
+                result = _context5.sent;
+                return _context5.abrupt("return", result);
+
+              case 4:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }));
+
+      function getAll(_x6, _x7) {
+        return _getAll.apply(this, arguments);
+      }
+
+      return getAll;
     }()
   }]);
   return UserRepository;

@@ -2,7 +2,7 @@ import { TitleLogoComponent } from './../components/title-logo/title-logo.compon
 import { FooterPlanetComponent } from './../components/footer-planet/footer-planet.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -14,6 +14,7 @@ import { SessionPage } from './session.page';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     SessionPageRoutingModule
   ],

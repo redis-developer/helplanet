@@ -5,7 +5,7 @@ function LogoutCtrl(){
     return async (req,res,next)=>{
         try {
             const userId = req.userId;
-            console.log(userId);
+            //console.log(userId);
             // remove token on redis
             const removed = await removeToken(userId);
             

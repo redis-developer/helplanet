@@ -15,7 +15,7 @@ function GetUsersCtrl(userPersistence){
                 maxLimit = minLimit+limit;
             }
                         
-            // verify if user with email exists
+            // get data for page
             const result = await userPersistence.getAll(minLimit,maxLimit);
                                                     
             

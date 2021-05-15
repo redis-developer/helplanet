@@ -1,9 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>notification-list</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="container-main" [fullscreen]="true">
+  <app-header></app-header>  
+  <center>
+    <h3>Your notifications</h3>
+  </center>
+  <div>
+    <ng-container *ngFor="let d of data; let i = index">
+      <app-item-notification (onRemove)="removeItem($event)" [data]="d" [index]="i"></app-item-notification>
 
-<ion-content>
-
+    </ng-container>
+      <ion-infinite-scroll threshold="100px" (ionInfinite)="addPage($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>        
+  
+  </div>   
 </ion-content>

@@ -14,7 +14,8 @@ const app = express();
 
 // white origin list
 var whiteList = [
-    'http://127.0.0.1:8100'
+    'http://127.0.0.1:8100',
+    'http://localhost:8100'
 ];
 
 var corsOptionsFunction = (req,callback)=>{

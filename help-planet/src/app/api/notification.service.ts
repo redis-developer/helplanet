@@ -5,23 +5,24 @@ import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { FormNotificationModel } from '../models/formNotification.model';
+import { NotificationDTO } from '../models/notification.dto';
+import { AuthService } from './auth.service';
 
-const URL_SERVICE = `${environment.backendURL}notification`;
+const URL_SERVICE = `${environment.backendURLReport}/report`;
 
 @Injectable({
   providedIn: 'root'
 })
-export class NotificationService {
-  
-  httpHeader = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+export class NotificationService {  
 
-  constructor(private http:HttpClient, private socket:Socket) { }  
+
+  constructor(private http:HttpClient, private socket:Socket, private auth:AuthService) {   
+  }  
+
 
   // create notification
-  addNotification(formNotification:FormNotificationModel):Observable<any>{
-    return this.http.post(`${URL_SERVICE}/add`,formNotification,this.httpHeader)
+  addNotification({level, text,geo, situation}:Partial<FormNotificationModel>):Observable<any>{    
+    return this.http.post(`${URL_SERVICE}/add`,{level,text,geo, situation})
     .pipe(
       catchError(this.handleError('Add Notification'))
     );
@@ -29,21 +30,27 @@ export class NotificationService {
 
   // cancel notification - status change
   cancelNotification(id:string):Observable<any>{
-    
-    return this.http.put(`${URL_SERVICE}/cancel`,this.httpHeader)
+    //TODO
+    return this.http.delete(`${URL_SERVICE}/cancel/${id}`)
     .pipe(
       catchError(this.handleError('Cancel Notification'))
     );
+    return of()
   }
 
-  listNotification(page:number,lat:string,lon:string):Observable<FormNotificationModel[]>{
-    return this.http.get<FormNotificationModel[]>(`${URL_SERVICE}/list/${page}/${lat}/${lon}`,this.httpHeader)
+  listNearNotification(lat:string,lon:string):Observable<NotificationDTO[]>{
+    return this.http.get<NotificationDTO[]>(`${URL_SERVICE}/near/${lon}/${lat}`)
     .pipe(
-      catchError(this.handleError<FormNotificationModel[]>('List Notification'))
+      catchError(this.handleError<NotificationDTO[]>('List Notification'))
     )
   }
 
+  listNotification(page:number){
+    return this.http.get<NotificationDTO[]>(`${URL_SERVICE}/list-all/${page}`);
+  }
+
   eventAddNotification(){
+    //TODO
     // use sockets for get notifications realtime
     return this.socket.fromEvent('add-notification');
   }

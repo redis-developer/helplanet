@@ -24,11 +24,12 @@ async function isAuth(req,res,next){
         // verify user exists
         const user = await userRepository.getById(idUser);
         if (!user) throw createError.NotFound('User not found');
-        console.log("user auth=>",user);
+        //console.log("user auth=>",user);
         // verify account enable
         if(user.status === 0) throw createError.Unauthorized("Account is disabled"); 
 
         req.userId = idUser;
+        req.email = user.email;
         req.role = user.role;
 
         next();

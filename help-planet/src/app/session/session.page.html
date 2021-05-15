@@ -1,21 +1,40 @@
 <ion-content class="container-main" [fullscreen]="true">
   <app-title-logo></app-title-logo>
 
-  <div class="ion-hide-md-down">
-    <form id="login" >
+  <div class="ion-hide-md-down">    
+    <form id="login" [formGroup]="frmLogin" (ngSubmit)="loginUser()">
       <div class="inline-form">
         <ion-item>
-          <ion-label position="stacked">Ingresa un correo</ion-label>
-          <input type="email" placeholder="Email">
+          <ion-label position="stacked">Email</ion-label>
+          <input formControlName="email" type="email" placeholder="Email">
+          <div *ngIf="f.email.errors && (f.email.dirty || f.email.touched)" >
+            <div *ngIf="f.email.errors.required" class="text-danger">
+              Email is required
+            </div>
+            <div *ngIf="f.email.errors.email" class="text-danger">
+              Email is not valid
+            </div>
+          </div>
         </ion-item>
         <ion-item>
-          <ion-label position="stacked">Escribe tu contraseña</ion-label>
-          <input type="password" placeholder="******">
+          <ion-label position="stacked">Password</ion-label>
+          <input formControlName="password" type="password" placeholder="******">
+          <div *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
+            <div *ngIf="f.password.errors.required" class="text-danger">
+              Password is required
+            </div>
+            <div *ngIf="f.password.errors.minlength" class="text-danger">
+                Min 6 characters
+            </div>
+            <div *ngIf="f.password.errors.maxlength" class="text-danger">
+                Max 255 characters
+            </div>
+          </div>
         </ion-item>                    
       </div>      
       <div class="inline-form">
-        <ion-button>Iniciar sesión</ion-button>
-        <ion-button>Registrarsse</ion-button>
+        <ion-button type="submit" [disabled]="!frmLogin.valid">Log in</ion-button>
+        <ion-button (click)="goToRegister()">Register</ion-button>
       </div>      
     </form>
   </div>  

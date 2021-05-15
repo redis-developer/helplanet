@@ -1,20 +1,14 @@
 import createError from "http-errors";
 
-// cancel a attentioin for notification
+// cancel a attention for notification
 function CancelAttentionCtrl(notificationPersistence){            
     return async (req,res,next)=>{
-        try {
-
-            const userId = req.userId;
+        try {            
             const {                
-                level,//gravity    (0) YELLOW, (1) ORANGE, (2) RED
-                text,
-                geo,//{lat,lon}
-                situation,                            
-            } = req.body;
-
-            console.log(req.body);
-            await notificationPersistence.addStream({level,text,geo,situation, userId});
+              id                              
+            } = req.params;
+            
+            await notificationPersistence.attendCancel(id);
 
             res.json({});
 

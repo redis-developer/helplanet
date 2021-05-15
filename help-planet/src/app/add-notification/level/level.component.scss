@@ -8,12 +8,17 @@
     letter-spacing: 0.5rem;
 }
 
+.active{
+    opacity:1 !important;
+}
+
 .level-icon{    
     height: 4rem;
     width: 3.5rem;
     background-size: cover;
     background-repeat: no-repeat;
     margin:0.8rem;
+    opacity: 0.4;
 }
 
 .ianimal-icon-yellow-icon{

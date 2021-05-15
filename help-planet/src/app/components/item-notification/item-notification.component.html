@@ -1,3 +1,24 @@
-<p>
-  item-notification works!
-</p>
+<div class="menu-item mt-2" >  
+  <div class="glass" >
+    <div>      
+       <img [src]="'/assets/bg/'+getImage(notification.level,notification.situation)">       
+    </div>
+    <div>
+      <div (click)="goToMap()">
+        <h3>
+         {{notification.situation}}                             
+        </h3>
+        <p>
+          {{notification.text}}
+        </p>
+        <p>
+          {{userOrg ? 'Attend' : 'Not Attend'}}
+        </p>
+      </div>
+
+    </div>
+  </div>
+  <ion-button (click)="remove()" shape="round">
+    Remove
+  </ion-button>
+</div>

@@ -23,7 +23,9 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 var router = (0, _express["default"])();
 var notificationRepository = new _notification["default"]();
-router.post('/add', [_auth.isAuth, _auth.isUserReport], ReportController.AddNotificationCtrl(notificationRepository));
-router.put('/cancel', [_auth.isAuth, _auth.isUserReport], ReportController.CancelNotificationCtrl());
+router.post('/add', [_auth.isAuth], ReportController.AddNotificationCtrl(notificationRepository));
+router.put('/cancel', [_auth.isAuth], ReportController.CancelNotificationCtrl());
+router.get('/list-all/:init/:end', [_auth.isAuth], ReportController.ListNotificationCtrl(notificationRepository));
+router.get('/near/:lon/:lat', [_auth.isAuth], ReportController.ListNearNotificationsCtrl(notificationRepository));
 var _default = router;
 exports["default"] = _default;

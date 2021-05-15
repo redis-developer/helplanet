@@ -21,7 +21,8 @@ function CancelNotificationCtrl() {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              try {} catch (error) {
+              try {// TODO logic for cancel notification controller
+              } catch (error) {
                 console.log(error);
                 next(error);
               }

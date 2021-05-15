@@ -23,31 +23,31 @@ function LogoutCtrl() {
           switch (_context.prev = _context.next) {
             case 0:
               _context.prev = 0;
-              userId = req.userId;
-              console.log(userId); // remove token on redis
+              userId = req.userId; //console.log(userId);
+              // remove token on redis
 
-              _context.next = 5;
+              _context.next = 4;
               return (0, _token.removeToken)(userId);
 
-            case 5:
+            case 4:
               removed = _context.sent;
               // response
               res.json({});
-              _context.next = 13;
+              _context.next = 12;
               break;
 
-            case 9:
-              _context.prev = 9;
+            case 8:
+              _context.prev = 8;
               _context.t0 = _context["catch"](0);
               console.log(_context.t0);
               next(_context.t0);
 
-            case 13:
+            case 12:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[0, 9]]);
+      }, _callee, null, [[0, 8]]);
     }));
 
     return function (_x, _x2, _x3) {

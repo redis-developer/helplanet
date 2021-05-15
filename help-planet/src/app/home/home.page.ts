@@ -1,14 +1,15 @@
 import { MENU } from './menu/menu.component';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import MenuObjModel from '../models/menuobj.model';
 import { AuthService } from '../api/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   menuArr:MenuObjModel[] = [
     {
       name:'Report an animal',
@@ -32,12 +33,27 @@ export class HomePage {
     }
   ];
 
+  username = '';
+
   constructor(
-    private authService:AuthService
+    private authService:AuthService,
+    private route:Router
   ) {}
+
+  async ngOnInit(){
+    let data = await this.authService.getStorage();
+    this.username = data.username;
+  }
 
   logoutUser(){
     this.authService.logout();
   }
+
+
+  goTo(url){
+    this.route.navigate([url]);
+  }
+
+  
 
 }

@@ -1,4 +1,5 @@
 <ion-content class="container-main" [fullscreen]="true">
+    <app-header></app-header>
     <app-level [typeNotification]="typeNotif" (onSelectLevel)="setLevel($event)"></app-level>
     <app-form [level]="level" [situation]="typeNotif" ></app-form>
     <div>

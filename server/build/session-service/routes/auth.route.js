@@ -26,6 +26,8 @@ var userRepository = new _user["default"]();
 router.post('/register', AuthController.RegisterCtrl(userRepository));
 router.post('/login', AuthController.LoginCtrl(userRepository));
 router.get('/logout', [_auth.isAuth], AuthController.LogoutCtrl());
+router.post('/set-role', [_auth.isAuth, _auth.isAdmin], AuthController.SetRoleCtrl(userRepository));
+router.get('/all/:page', AuthController.GetUsersCtrl(userRepository));
 router.post('/recovery-pass', AuthController.RecoverPasswordCtrl(userRepository));
 var _default = router;
 exports["default"] = _default;

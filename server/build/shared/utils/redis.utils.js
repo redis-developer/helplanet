@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.redisOnlyPrefix = exports.redisPrefix = exports.redisKey = exports.redisInstance = void 0;
+exports.convertToUnix = exports.xrangeTransformResult = exports.redisOnlyPrefix = exports.redisPrefix = exports.redisKey = exports.redisInstance = void 0;
 
 // redis init
 var Redis = require("ioredis");
@@ -11,7 +11,11 @@ var Redis = require("ioredis");
 var redisInstance = new Redis({
   port: process.env.REDIS_PORT,
   path: process.env.REDIS_PATH,
-  password: process.env.REDIS_PASS
+  password: process.env.REDIS_PASS,
+  retryStrategy: function retryStrategy(times) {
+    var delay = Math.min(times * 50, 2000);
+    return delay;
+  }
 }); // return key format for redis db
 
 exports.redisInstance = redisInstance;
@@ -87,4 +91,35 @@ Redis.Command.setReplyTransformer("FT.SEARCH", function (result) {
   }
 
   return result;
-});
+}); // ************************ TRANSFORMER REDIS XRANGE***********************
+
+var xrangeTransformResult = function xrangeTransformResult(result) {
+  if (Array.isArray(result)) {
+    var objResult = []; // loop all array skip id and result num
+
+    for (var i = 0; i < result.length; i += 1) {
+      // loop by results obj
+      var obj = {};
+      obj['id'] = result[i][0];
+
+      for (var j = 0; j < result[i][1].length; j += 2) {
+        // create obj sesult
+        obj[result[i][1][j]] = result[i][1][j + 1];
+      }
+
+      objResult.push(obj);
+    }
+
+    return objResult;
+  }
+
+  return result;
+};
+
+exports.xrangeTransformResult = xrangeTransformResult;
+
+var convertToUnix = function convertToUnix(date) {
+  return Math.floor(new Date(date).getTime());
+};
+
+exports.convertToUnix = convertToUnix;

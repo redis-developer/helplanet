@@ -1,9 +1,8 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>notification-location</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <ng-template #loading>
+    <h3>
+      Loading...
+    </h3>
+  </ng-template>  
+  <app-item-map *ngIf="data;else loading"  [data]="data"></app-item-map>
 </ion-content>
