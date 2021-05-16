@@ -5,6 +5,7 @@ function GetUsersCtrl(userPersistence){
     return async (req,res,next)=>{
         try {         
             const {page} = req.params;    
+            
             const limit = 10;            
             let minLimit = 0;            
             let maxLimit = 0;
@@ -14,10 +15,20 @@ function GetUsersCtrl(userPersistence){
                 minLimit = (page*limit)
                 maxLimit = minLimit+limit;
             }
-                        
-            // get data for page
-            const result = await userPersistence.getAll(minLimit,maxLimit);
-                                                    
+            let result = [];  
+            
+            if(req.params.email == undefined)
+            {
+                
+                // get data for page
+                const r = await userPersistence.getAll(minLimit,maxLimit);
+                result.push(...r);
+            } else{                
+                
+                const r = await userPersistence.getByEmail(req.params.email);
+                result.push(...r);
+            }           
+
             
             // response
             res.json({page, minLimit, maxLimit, result});

@@ -1,1 +1,28 @@
-<p>item-user works!</p>
+<div>
+    <div>
+        <h3>
+            <strong>
+                {{data.email}}
+            </strong>
+        </h3>
+        <h4>
+            {{data.username}} <strong>{{getRole()}}</strong>
+        </h4>
+    </div>
+    <div>        
+        <mat-form-field appearance="fill">
+        <mat-label>Change role</mat-label>
+        <mat-select (selectionChange)="updateRole()" [(value)]="data.role">
+            <mat-option value="0">
+                Administrator
+            </mat-option>
+            <mat-option value="1">
+                User Reporter
+            </mat-option>
+            <mat-option value="2">
+                User Reporter/Organization
+            </mat-option>
+        </mat-select>
+        </mat-form-field>
+    </div>
+</div>

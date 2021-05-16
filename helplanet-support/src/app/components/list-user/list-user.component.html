@@ -1,0 +1,30 @@
+<div>
+    <h3 class="margint">
+        {{title}}
+    </h3>
+    <div>
+        <ng-container *ngIf="!isFilter else listuserFilter">
+            <h3 *ngIf="data == null else list">
+                Loading...
+            </h3>
+            <ng-template #list >                    
+                <app-item-user *ngFor="let result of data" [data] = "result" [userOrg]="userOrg"></app-item-user>                
+                <button *ngIf="showButton" type="button" (click)="addData()">Show more</button>
+            </ng-template>
+        </ng-container>
+        <ng-template #listuserFilter>            
+            <h3>
+                <div>
+                    <input type="email" [(ngModel)]="email" #searchInput="ngModel" placeholder="Search by email"/>
+                    <button type="button" (click)="searchFn()">Search</button>
+                </div>
+            </h3>
+            <div *ngIf="dataFilter.length == 0 else listuserFilter">
+                without results 
+            </div>
+            <ng-template #listuserFilter >                    
+                <app-item-user *ngFor="let result of dataFilter" [data] = "result" [userOrg]="userOrg"></app-item-user>                
+            </ng-template>
+        </ng-template>
+    </div>
+</div>

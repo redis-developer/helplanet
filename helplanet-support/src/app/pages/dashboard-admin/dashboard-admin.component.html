@@ -1,1 +1,16 @@
-<p>dashboard-admin works!</p>
+<h2>
+    Administration
+</h2>
+<div class="content-sides">    
+        <div class="side-left">
+            <app-list-user [title]="'Users'" [isFilter]="false"></app-list-user>
+        </div> 
+        <div class="side-right">
+            <div class="inner-content">
+
+                <div class="top">
+                    <app-list-user [title]="'Users search by email'" [isFilter]="true"></app-list-user>
+                </div>                                                 
+            </div>
+        </div>                           
+</div>

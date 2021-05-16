@@ -69,7 +69,7 @@ Redis.Command.setReplyTransformer("hgetall", (result) => {
 
 // ************************ TRANSFORMER REDIS SEARCH***********************
 Redis.Command.setReplyTransformer("FT.SEARCH", (result) => {  
-  console.log(result);
+  
   if (Array.isArray(result)) {
     const objResult = [];
     // loop all array skip id and result num
