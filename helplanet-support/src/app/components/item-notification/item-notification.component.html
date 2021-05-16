@@ -15,17 +15,17 @@
           <p>
             {{data.text}}
           </p>
-          <p>            
+          <p class="badge bg-warning text-dark">            
             {{data.userOrg ? 'Attend' : 'Not Attend'}}              
           </p>
         </div>
   
       </div>
     </div>    
-    <button *ngIf="userOrg==data.userOrg" type="button" (click)="cancel()" shape="round">
+    <button class="btn btn-dark" style="width: 200px;" *ngIf="userOrg==data.userOrg" type="button" (click)="cancel()" shape="round">
      Cancel
     </button>    
-    <button *ngIf="!data.userOrg || data.userOrg == ''" type="button" (click)="attend()" shape="round">
+    <button class="btn btn-dark" style="width: 200px;" *ngIf="!data.userOrg || data.userOrg == ''" type="button" (click)="attend()" shape="round">
       Attend
     </button>       
   </div>

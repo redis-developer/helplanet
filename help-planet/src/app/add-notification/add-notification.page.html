@@ -1,10 +1,14 @@
 <ion-content class="container-main" [fullscreen]="true">
     <app-header></app-header>
-    <app-level [typeNotification]="typeNotif" (onSelectLevel)="setLevel($event)"></app-level>
-    <app-form [level]="level" [situation]="typeNotif" ></app-form>
-    <div>
-        Helplanet add a notification in this place
-        so that an organization available
-        attend her. We hope to be of help 
-    </div>   
+    <div class="p-3 mt-4">        
+        <div class="mt-2 mb-2">
+            <app-level [typeNotification]="typeNotif" (onSelectLevel)="setLevel($event)"></app-level>
+        </div>        
+        <app-form [level]="level" [situation]="typeNotif" ></app-form>
+        <div class="p-3 mb-2 bg-secondary text-white">
+            Helplanet add a notification in this place
+            so that an organization available
+            attend her. We hope to be of help 
+        </div> 
+    </div>  
 </ion-content>

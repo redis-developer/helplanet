@@ -1,14 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~leaflet/dist/leaflet.css";
-
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 @font-face {   
-    font-family: 'Roboto';   
-    src: url('/assets/fonts/Roboto/Roboto-Thin.ttf');    
+    font-family: 'Ubuntu';   
+    src: url('/assets/fonts/Ubuntu/Ubuntu-Medium.ttf');    
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Ubuntu, "Helvetica Neue", sans-serif; }
 
 
 
@@ -39,7 +39,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 h1{
-    font-family: Roboto;
+    font-family: Ubuntu;
     font-size: 3rem;
     color:#ccc;    
 }

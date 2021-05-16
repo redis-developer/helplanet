@@ -1,24 +1,24 @@
-<div class="menu-item mt-2" >  
-  <div class="glass" >
+<div class="menu-item mt-2" (click)="goToMap()">  
+  <div style="width:100%;">
     <div>      
        <img [src]="'/assets/bg/'+getImage(notification.level,notification.situation)">       
     </div>
     <div>
-      <div (click)="goToMap()">
+      <div class="mt-2">
         <h3>
          {{notification.situation}}                             
         </h3>
         <p>
           {{notification.text}}
         </p>
-        <p>
+        <p class="badge bg-warning text-dark">
           {{userOrg ? 'Attend' : 'Not Attend'}}
         </p>
       </div>
 
     </div>
-  </div>
-  <ion-button (click)="remove()" shape="round">
-    Remove
-  </ion-button>
+    <ion-button style="position:absolute; z-index:100; left: 0; right:0; bottom: 0px; width:100px;" (click)="remove()" shape="round">
+      Remove
+    </ion-button>    
+  </div>    
 </div>

@@ -48,6 +48,7 @@ export class ItemNotificationComponent implements OnInit {
   
   
   goToMap(){
+    console.log("got map");
     this.route.navigate(['show-notification',JSON.stringify(this.notification)])
   }
 

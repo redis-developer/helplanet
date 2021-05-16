@@ -1,12 +1,12 @@
 <div class="container-main content">
     <app-title-logo></app-title-logo>
   
-    <div class="ion-hide-md-down">    
-      <form id="login" [formGroup]="frmRegister" (ngSubmit)="registerUser()">
-        <div class="inline-form">
+    <div class="d-flex justify-content-center">    
+      <form id="login" class="w-50" [formGroup]="frmRegister" (ngSubmit)="registerUser()">
+        <div>
           <div>
-            <label position="stacked">Email</label>
-            <input formControlName="email" type="email" placeholder="Email">
+            <label position="stacked" class="form-label mt-3">Email</label>
+            <input class="form-control" formControlName="email" type="email" placeholder="Email">
             <div *ngIf="f.email.errors && (f.email.dirty || f.email.touched)" >
               <div *ngIf="f.email.errors.required" class="text-danger">
                 Email is required
@@ -17,8 +17,8 @@
             </div>
           </div>
           <div>
-            <label position="stacked">Username</label>
-            <input formControlName="username" type="text" placeholder="username">
+            <label position="stacked" class="form-label mt-3">Username</label>
+            <input class="form-control" formControlName="username" type="text" placeholder="username">
             <div *ngIf="f.username.errors && (f.username.dirty || f.username.touched)" >
               <div *ngIf="f.username.errors.required" class="text-danger">
                 Username is required
@@ -29,8 +29,8 @@
             </div>
           </div>
           <div>
-            <label position="stacked">Password</label>
-            <input formControlName="password" type="password" placeholder="******">
+            <label position="stacked" class="form-label mt-3">Password</label>
+            <input formControlName="password" class="form-control" type="password" placeholder="******">
             <div *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
               <div *ngIf="f.password.errors.required" class="text-danger">
                 Password is required
@@ -44,9 +44,9 @@
             </div>
           </div>                    
         </div>      
-        <div class="inline-form">
-          <button type="submit" [disabled]="!frmRegister.valid">Register</button>
-          <button (click)="goToLogin()">Log in</button>        
+        <div class="d-flex justify-content-center mt-4" >
+          <button type="submit" class="btn btn-dark" [disabled]="!frmRegister.valid">Register</button>
+          <button (click)="goToLogin()" class="btn btn-dark">Log in</button>        
         </div>      
       </form>
     </div>  

@@ -1,0 +1,7 @@
+#map{
+    opacity:0.5;
+}
+
+#map:hover{
+    opacity:1;
+}

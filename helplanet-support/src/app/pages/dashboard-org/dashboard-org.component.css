@@ -8,9 +8,9 @@
 }
 
 .side-right{ 
-    width: 45vw;    
+    width: 48vw;    
     padding: 5px;
-    border:2px solid #000;
+    
     margin: 5px;
     border-radius: 5px;
     position: sticky;    
@@ -21,7 +21,7 @@
 }
 
 .side-right > .top{
-    height: 30vh;
+    height: 35vh;
     overflow-y: scroll;    
 }
 
@@ -29,6 +29,5 @@
     width: 45vw;    
     padding: 5px;
     margin: 5px;
-    border:2px solid #000;
-    border-radius: 5px;
+    border-right:2px solid #000;    
 }

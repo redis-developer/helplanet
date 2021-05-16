@@ -1,7 +1,7 @@
 <div>
-    <h3 class="margint">
+    <h2 class="margint text-white">
         {{title}}
-    </h3>
+    </h2>
     <div>
         <ng-container *ngIf="!isFilter else listuserFilter">
             <h3 *ngIf="data == null else list">
@@ -9,17 +9,20 @@
             </h3>
             <ng-template #list >                    
                 <app-item-user *ngFor="let result of data" [data] = "result" [userOrg]="userOrg"></app-item-user>                
-                <button *ngIf="showButton" type="button" (click)="addData()">Show more</button>
+                <div class="d-flex justify-content-center mt-2">
+                    <button *ngIf="showButton" class="btn btn-dark" type="button" (click)="addData()">Show more</button>
+                </div>
+                
             </ng-template>
         </ng-container>
         <ng-template #listuserFilter>            
             <h3>
-                <div>
-                    <input type="email" [(ngModel)]="email" #searchInput="ngModel" placeholder="Search by email"/>
-                    <button type="button" (click)="searchFn()">Search</button>
+                <div class="d-flex justify-content-center">
+                    <input  class="form-control" type="email" [(ngModel)]="email" #searchInput="ngModel" placeholder="Search by email"/>
+                    <button type="button" class="btn btn-dark" (click)="searchFn()">Search</button>
                 </div>
             </h3>
-            <div *ngIf="dataFilter.length == 0 else listuserFilter">
+            <div class="text-white" *ngIf="dataFilter.length == 0 else listuserFilter">
                 without results 
             </div>
             <ng-template #listuserFilter >                    

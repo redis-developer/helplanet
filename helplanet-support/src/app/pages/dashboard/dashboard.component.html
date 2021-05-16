@@ -1,14 +1,34 @@
-<app-dashboard-org *ngIf="role==2; else administration"></app-dashboard-org>
-<ng-template #administration>
-    <button type="button" (click)="logout()">
-        Logout
-    </button>
-    <mat-tab-group mat-align-tabs="center">
-        <mat-tab label="Organizations">
-            <app-dashboard-org></app-dashboard-org>
-        </mat-tab>
-        <mat-tab label="Admininistration">
-            <app-dashboard-admin></app-dashboard-admin>
-        </mat-tab>    
-    </mat-tab-group>    
-</ng-template>
+<div class="container-main content">
+
+    <app-dashboard-org *ngIf="role==2; else administration"></app-dashboard-org>
+    <ng-template #administration>
+        <div class="d-flex border-bottom border-warning justify-content-between text-white">
+            <h1 class="mt-2">
+                Hi {{username}} ({{email}})
+            </h1>
+            <button type="button" class="btn btn-dark" (click)="logout()">
+                Logout
+            </button>
+        </div>    
+        <mat-tab-group [color]="'red'" mat-align-tabs="center">
+            <mat-tab>
+                <ng-template mat-tab-label>                    
+                    <h2 class="text-white">
+                        Organizations
+                    </h2>
+                  </ng-template>
+                <app-dashboard-org></app-dashboard-org>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>                    
+                    <h2 class="text-white">
+                        Administration
+                    </h2>
+                  </ng-template>
+                <app-dashboard-admin></app-dashboard-admin>
+            </mat-tab>    
+        </mat-tab-group>    
+    </ng-template>
+    
+    <app-footer-planet></app-footer-planet>
+</div>

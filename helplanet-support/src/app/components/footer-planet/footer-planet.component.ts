@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-footer-planet',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer-planet.component.css']
 })
 export class FooterPlanetComponent implements OnInit {
-
+  @Input("isSun") isSun:boolean = false;
   constructor() { }
 
   ngOnInit(): void {

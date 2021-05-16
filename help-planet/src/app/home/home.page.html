@@ -1,9 +1,9 @@
-<ion-content [fullscreen]="true" class="container-main">  
-    <h1>
+<ion-content [fullscreen]="true" class="container-main p-2">  
+    <h1 class="mt-4 mb-4">
       Hi<br/>
       {{username}}
     </h1>     
-    <app-footer-planet></app-footer-planet>    
+    <app-footer-planet [isSun]="true"></app-footer-planet>    
     <div class="scroll-intern">
       <app-menu *ngFor="let menu of menuArr" [menuobj]="menu"></app-menu>  
     </div>

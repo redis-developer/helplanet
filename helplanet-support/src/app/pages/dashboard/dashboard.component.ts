@@ -8,12 +8,16 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class DashboardComponent implements OnInit {
   role = null;
+  username = '';
+  email = '';
   constructor(
     private auth:AuthService
   ) { }
 
   ngOnInit(): void {
     this.role = this.auth.getStorage().role;
+    this.username = this.auth.getStorage().username;
+    this.email = this.auth.getStorage().email;
   }
 
   logout(){

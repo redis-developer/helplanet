@@ -27,8 +27,8 @@
 @import "~leaflet/dist/leaflet.css";
 
 @font-face {   
-    font-family: 'Roboto';    //This is what we are going to call
-    src: url('/assets/fonts/Roboto/Roboto-Thin.ttf');    
+    font-family: 'Ubuntu';    //This is what we are going to call
+    src: url('/assets/fonts/Ubuntu/Ubuntu.ttf');    
 }
 
 .mt-2{
@@ -59,7 +59,7 @@
 
 
 h1{
-    font-family: Roboto;
+    font-family: Ubuntu;
     font-size: 3rem;
     color:#ccc;    
 }
@@ -157,3 +157,5 @@ ion-content {
     }
   }
 
+
+  
