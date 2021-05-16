@@ -424,6 +424,16 @@
        y1="138.64807"
        x2="108.57626"
        y2="373.86346" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5485"
+       id="linearGradient5375"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.72979867,0,0,0.84125508,-224.41514,-684.68813)"
+       x1="108.51144"
+       y1="138.64807"
+       x2="108.57626"
+       y2="373.86346" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -2372,10 +2382,13 @@
          id="tspan6332-6"
          sodipodi:role="line">HELPLANET</tspan></text>
     <g
-       id="g5373">
+       id="g5373"
+       transform="translate(8.3323402,7.2869998)"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <path
          id="rect4583-2"
-         style="display:inline;vector-effect:none;fill:url(#linearGradient2690);fill-opacity:1;stroke:none;stroke-width:2.01255;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.463576;paint-order:markers stroke fill"
+         style="display:inline;vector-effect:none;fill:url(#linearGradient5375);fill-opacity:1;stroke:none;stroke-width:2.01255;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.463576;paint-order:markers stroke fill"
          d="m -339.85832,-491.51864 v 108.5857 h 317.5 v -238.125 h -317.5 z" />
       <g
          id="g3979"
@@ -2573,7 +2586,7 @@
         </g>
       </g>
       <path
-         style="display:inline;opacity:0.584846;fill:#e3dbdb;stroke-width:1.42857;fill-opacity:1"
+         style="display:inline;opacity:0.584846;fill:#e3dbdb;fill-opacity:1;stroke-width:1.42857"
          d="m -1018.5662,-1792.3843 v -12.8571 h 14.2858 14.28567 v 4.2857 c 0,4.2424 0.0794,4.2857 7.85714,4.2857 7.77778,0 7.85714,-0.043 7.85714,-4.2857 0,-3.8095 0.47619,-4.2857 4.28572,-4.2857 3.80952,0 4.28571,0.4762 4.28571,4.2857 0,4.1905 0.15873,4.2857 7.14286,4.2857 6.98413,0 7.14286,-0.095 7.14286,-4.2857 0,-3.8095 0.47619,-4.2857 4.28571,-4.2857 3.80952,0 4.28571,0.4762 4.28571,4.2857 0,4.2424 0.0794,4.2857 7.85715,4.2857 7.7132,0 7.85714,-0.076 7.85714,-4.1329 0,-3.7833 2.07099,-5.8671 5.83112,-5.8671 0.72146,0 1.31174,2.25 1.31174,5 v 5 h 7.85714 7.85714 v -5 c 0,-4.6032 0.34014,-5 4.28572,-5 3.94558,0 4.28571,0.3968 4.28571,5 v 5 h 7.14286 7.14286 v -5 c 0,-4.6032 0.34013,-5 4.28571,-5 3.94557,0 4.28571,0.3968 4.28571,5 v 5 h 7.85715 7.85714 v -5 c 0,-4.3479 0.4545,-5 3.48519,-5 2.97534,0 3.56717,-0.7837 4.04557,-5.3571 0.31057,-2.969 0.66743,-0.74 0.80053,5 l 0.24014,10.3571 h 7.14286 7.14285 v -5 c 0,-4.6032 0.34015,-5 4.28572,-5 3.94557,0 4.28571,0.3968 4.28571,5 v 5 h 7.14286 7.14286 v -5 c 0,-4.6032 0.34014,-5 4.28571,-5 3.94557,0 4.28571,0.3968 4.28571,5 v 5 h 7.85715 7.85714 v -5 c 0,-4.6032 0.34014,-5 4.28571,-5 3.94558,0 4.28572,0.3968 4.28572,5 v 5 h 7.14286 7.14285 v -5 c 0,-4.6032 0.34015,-5 4.28572,-5 3.94557,0 4.28571,0.3968 4.28571,5 v 5 h 7.14286 7.14286 v -5 c 0,-4.6032 0.34014,-5 4.28571,-5 3.94557,0 4.28571,0.3968 4.28571,5 v 5 h 7.85715 7.85714 v -5 c 0,-4.6032 0.34014,-5 4.28571,-5 3.94558,0 4.28572,0.3968 4.28572,5 v 5 h 7.14286 7.14285 v -5 c 0,-4.6032 0.34015,-5 4.28572,-5 3.94557,0 4.28571,0.3968 4.28571,5 v 5 h 7.85714 7.85715 v -5 c 0,-4.3809 0.44217,-5 3.57143,-5 3.12925,0 3.57142,0.6191 3.57142,5 v 5 h 7.85715 7.85714 v -5 c 0,-4.6032 0.34014,-5 4.28571,-5 3.94558,0 4.28572,0.3968 4.28572,5 v 5 h 7.14286 7.14285 v -5 c 0,-4.6032 0.34015,-5 4.28572,-5 3.94557,0 4.28571,0.3968 4.28571,5 v 5 h 7.85714 7.85715 v -5 c 0,-4.3479 0.4545,-5 3.48518,-5 2.97535,0 3.56717,-0.7837 4.04557,-5.3571 0.31058,-2.969 0.66743,-0.74 0.80053,5 l 0.24015,10.3571 h 7.14285 7.14286 v -5 c 0,-4.6032 0.34014,-5 4.28571,-5 3.94558,0 4.28572,0.3968 4.28572,5 v 5 h 7.14286 7.14285 v -5 c 0,-4.6032 0.34015,-5 4.28572,-5 3.94557,0 4.28571,0.3968 4.28571,5 v 5 h 7.85714 7.85715 v -5 c 0,-4.6032 0.34014,-5 4.28571,-5 3.94557,0 4.28572,0.3968 4.28572,5 v 5 h 7.14285 7.14286 v -5 c 0,-4.6032 0.34014,-5 4.28571,-5 3.94558,0 4.28572,0.3968 4.28572,5 v 5 h 7.14286 7.14285 v -5 c 0,-4.6032 0.34015,-5 4.28572,-5 3.94557,0 4.28571,0.3968 4.28571,5 v 5 h 7.85714 7.85715 v -5 c 0,-4.6032 0.34014,-5 4.28571,-5 3.94557,0 4.28572,0.3968 4.28572,5 v 5 h 7.14285 7.14286 v -5 -5 h 15 15 v 13.5714 13.5715 h -305.71429 -305.71432 z"
          id="path4328"
          transform="scale(0.26458333)" />
@@ -3017,7 +3030,7 @@
          transform="matrix(0.51134079,0,0,0.51134079,-56.039991,-214.37893)"
          style="stroke:#ffffff">
         <rect
-           style="display:inline;fill:#000000;stroke-width:0.280449;stroke:#ffffff"
+           style="display:inline;fill:#000000;stroke:#ffffff;stroke-width:0.280449"
            id="rect2852"
            width="61.857887"
            height="98.386322"
@@ -3030,20 +3043,20 @@
            d="m -1592.9395,-1848.2812 c 1.0884,0 2.1237,-0.248 3.0645,-0.6973 0.9408,-0.4493 1.7859,-1.0998 2.4961,-1.9043 0.7102,-0.8046 1.285,-1.7624 1.6816,-2.8281 0.3966,-1.0658 0.6153,-2.2397 0.6153,-3.4727 v -291.5547 c 0,-1.233 -0.2187,-2.4069 -0.6153,-3.4726 -0.3966,-1.0658 -0.9714,-2.0236 -1.6816,-2.8282 -0.7102,-0.8045 -1.5553,-1.455 -2.4961,-1.9043 -0.9408,-0.4493 -1.9761,-0.6972 -3.0645,-0.6972 h -206.5195 c -1.0883,0 -2.1237,0.2479 -3.0644,0.6972 -0.9408,0.4493 -1.7879,1.0998 -2.4981,1.9043 -0.7102,0.8046 -1.2831,1.7624 -1.6797,2.8282 -0.3966,1.0657 -0.6172,2.2396 -0.6172,3.4726 v 157.1758 134.3789 c 0,1.233 0.2206,2.4069 0.6172,3.4727 0.3966,1.0657 0.9695,2.0235 1.6797,2.8281 0.7102,0.8045 1.5573,1.455 2.4981,1.9043 0.9407,0.4493 1.9761,0.6973 3.0644,0.6973 z"
            transform="scale(0.26458333)" />
         <circle
-           style="display:inline;fill:#f9f9f9;stroke-width:0.134171;stroke:#ffffff"
+           style="display:inline;fill:#f9f9f9;stroke:#ffffff;stroke-width:0.134171"
            id="path2856"
            cx="-448.78607"
            cy="-483.72073"
            r="4.3789377" />
         <circle
-           style="display:inline;fill:#f9f9f9;stroke-width:0.0447001;stroke:#ffffff"
+           style="display:inline;fill:#f9f9f9;stroke:#ffffff;stroke-width:0.0447001"
            id="circle2860"
            cx="-473.53845"
            cy="573.34241"
            r="1.4588785"
            transform="scale(1,-1)" />
         <circle
-           style="display:inline;fill:#f9f9f9;stroke-width:0.0447001;stroke:#ffffff"
+           style="display:inline;fill:#f9f9f9;stroke:#ffffff;stroke-width:0.0447001"
            id="circle2862"
            cx="-469.49857"
            cy="573.34241"
@@ -3383,7 +3396,7 @@
            x="-468.25946"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.51341px;line-height:1.25;font-family:'Yu Gothic UI';-inkscape-font-specification:'Yu Gothic UI';letter-spacing:0px;word-spacing:0px;display:inline;fill:#b3b3b3;fill-opacity:1;stroke:#ffffff;stroke-width:0.162836"
            xml:space="preserve"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:futura;-inkscape-font-specification:futura;fill:#b3b3b3;stroke-width:0.162836;stroke:#ffffff"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:futura;-inkscape-font-specification:futura;fill:#b3b3b3;stroke:#ffffff;stroke-width:0.162836"
              y="-560.32068"
              x="-468.25946"
              id="tspan3029"
@@ -7240,7 +7253,7 @@ y2JnLrf44LlzlUZ8rv8AuEvFpRsHKQUAAAAASUVORK5CYII=
            x="-307.65475"
            y="-517.45435">Reporter (Geo queries)</tspan></text>
       <rect
-         style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke-width:0.244891;stroke:#ffffff"
+         style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:#ffffff;stroke-width:0.244891"
          id="rect4817"
          width="72.773331"
          height="21.532066"
@@ -7264,7 +7277,7 @@ y2JnLrf44LlzlUZ8rv8AuEvFpRsHKQUAAAAASUVORK5CYII=
            y="-546.34338"
            id="tspan4825">Service</tspan></text>
       <rect
-         style="display:inline;fill:#1a1a1a;fill-opacity:1;stroke-width:0.244891;stroke:#ffffff"
+         style="display:inline;fill:#1a1a1a;fill-opacity:1;stroke:#ffffff;stroke-width:0.244891"
          id="rect4817-4"
          width="72.773331"
          height="21.532066"
@@ -7324,7 +7337,7 @@ y2JnLrf44LlzlUZ8rv8AuEvFpRsHKQUAAAAASUVORK5CYII=
            id="tspan4901">Elaborado por: Byron Rosas;</tspan><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1.05;font-family:futura;-inkscape-font-specification:futura;text-align:end;text-anchor:end;fill:#1a1a1a;stroke-width:0.110112"
            sodipodi:role="line"
-           x="-25.131716"
+           x="-25.131718"
            y="-386.87244"
            id="tspan4905">Referencia: Logos https://redis.io/modules</tspan></text>
       <rect
