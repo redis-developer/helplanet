@@ -5,7 +5,8 @@ This application allows people to notify when an event occurs (An animal needs h
 <img src="https://raw.githubusercontent.com/byronrosas/helplanet/main/logo.png" width="100%" height="auto">
 
 ## Architecture
-<a href="https://raw.githubusercontent.com/byronrosas/helplanet/main/architecture.png"><img src="https://raw.githubusercontent.com/byronrosas/helplanet/main/architecture.png" width="100%" height="auto"></a>
+
+![Alt text](https://raw.githubusercontent.com/byronrosas/helplanet/main/architecture.png)
 
 ## Mobile Application (Reporters)
 <div style="display:flex;">
