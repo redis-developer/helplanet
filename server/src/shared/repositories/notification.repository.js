@@ -91,7 +91,7 @@ export default class NotificationRepository{
 
     async getOneStream(id){                
         let STREAM_NAME = redisOnlyPrefix('report');
-        const result = await redisInstance.xrange(STREAM_NAME,id,'LIMIT',1);
+        const result = await redisInstance.xrange(STREAM_NAME,id,'+','COUNT',1);
         
         return xrangeTransformResult(result);
     }

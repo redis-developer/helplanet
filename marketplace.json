@@ -34,8 +34,18 @@
     "redis_features": ["caching","streams","RediSearch"],
     "redis_modules": ["RediSearch"],
     "app_image_urls": [
-        ""
-    ], // Provide any image urls in an array.
+        "https://raw.githubusercontent.com/byronrosas/helplanet/main/logo.png",
+        "https://raw.githubusercontent.com/byronrosas/helplanet/main/architecture.png",
+        "https://raw.githubusercontent.com/byronrosas/helplanet/main/loginMobile.png",                
+        "https://raw.githubusercontent.com/byronrosas/helplanet/main/menu.png",        
+        "https://raw.githubusercontent.com/byronrosas/helplanet/main/addNew.png",
+        "https://raw.githubusercontent.com/byronrosas/helplanet/main/mobileMap.png",
+        "https://raw.githubusercontent.com/byronrosas/helplanet/main/loginDashboard.png",
+        "https://raw.githubusercontent.com/byronrosas/helplanet/main/organizationDashboard.png",
+        "https://raw.githubusercontent.com/byronrosas/helplanet/main/administratorDashboard.png",
+        "https://raw.githubusercontent.com/byronrosas/helplanet/main/realTimeNotification.png"
+
+    ],
     "youtube_url": "https://www.youtube.com/watch?v=SCQwqhjjw8w",
     "special_tags": ["Hackathon"],
     "verticals": ["Technology"],
