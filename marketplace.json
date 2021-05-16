@@ -1,0 +1,43 @@
+{
+    "app_name": "Helplanet",
+    "description": "This application allows people to notify when an event occurs (An animal needs help, A place is full of garbage).The notification will also reach a platform that allows the subscription of help groups.",
+    "hidden": "true",
+    "rank": "21",
+    "type": "Full App",
+    "contributed_by":"Redis Labs",
+    "repo_url": "https://github.com/byronrosas/helplanet",
+    "download_url": "https://github.com/byronrosas/helplanet/archive/refs/heads/main.zip",
+    "hosted_url": "",
+    "quick_deploy": "false",
+    "deploy_buttons": [],
+    "language": ["JavaScript"],
+    "redis_commands": [
+        "FT.DROPINDEX",
+        "FT.CREATE",
+        "SET",
+        "EX",
+        "DEL",
+        "GET",
+        "HSET",
+        "HDEL",
+        "FT.SEARCH",
+        "LIMIT",
+        "HGETALL",
+        "EXPIRE",
+        "XADD",
+        "XRANGE",
+        "XREAD",
+        "COUNT",
+        "BLOCK"
+
+    ],
+    "redis_features": ["caching","streams","RediSearch"],
+    "redis_modules": ["RediSearch"],
+    "app_image_urls": [
+        ""
+    ], // Provide any image urls in an array.
+    "youtube_url": "https://www.youtube.com/watch?v=SCQwqhjjw8w",
+    "special_tags": ["Hackathon"],
+    "verticals": ["Technology"],
+    "markdown": "https://raw.githubusercontent.com/byronrosas/helplanet/main/README.md"
+}
