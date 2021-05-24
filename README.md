@@ -232,11 +232,14 @@ npm install
 cd ..
 cd help-planet
 npm install
+npm install -g @ionic/cli
+npm install @ionic-native/core@4 --save
+
 
 cd ..
 cd helplanet-support
 npm install
-
+npm install -g @angular/cli
 ```
 (Open three terminals)
 - First start server (start services) with this commands:
