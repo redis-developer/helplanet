@@ -1,15 +1,22 @@
 {
     "app_name": "Helplanet",
     "description": "This application allows people to notify when an event occurs (An animal needs help, A place is full of garbage).The notification will also reach a platform that allows the subscription of help groups.",
-    "hidden": "true",
-    "rank": "21",
+    "rank": "122",
     "type": "Full App",
-    "contributed_by":"Redis Labs",
-    "repo_url": "https://github.com/byronrosas/helplanet",
-    "download_url": "https://github.com/byronrosas/helplanet/archive/refs/heads/main.zip",
+    "contributed_by": "Community",
+    "repo_url": "https://github.com/redis-developer/helplanet",
+    "download_url": "https://github.com/redis-developer/helplanet/archive/refs/heads/main.zip",
     "hosted_url": "",
-    "quick_deploy": "false",
-    "deploy_buttons": [],
+    "quick_deploy": "true",
+    "deploy_buttons": [
+        {
+            "heroku": "https://heroku.com/deploy?template=https://github.com/redis-developer/helplanet.git" 
+        },
+        {
+            "Google": "https://deploy.cloud.run/?git_repo=https://github.com/redis-developer/helplanet.git" 
+        }
+    ],
+    
     "language": ["JavaScript"],
     "redis_commands": [
         "FT.DROPINDEX",
