@@ -38,7 +38,7 @@
         "BLOCK"
 
     ],
-    "redis_features": ["caching","streams","RediSearch"],
+    "redis_features": ["Caching","Redis Streams"],
     "redis_modules": ["RediSearch"],
     "app_image_urls": [
         "https://raw.githubusercontent.com/byronrosas/helplanet/main/logo.png",
