@@ -1,7 +1,7 @@
 {
     "app_name": "Helplanet",
     "description": "This application allows people to notify when an event occurs (An animal needs help, A place is full of garbage).The notification will also reach a platform that allows the subscription of help groups.",
-    "rank": "122",
+    "rank": 109,
     "type": "Full App",
     "contributed_by": "Community",
     "repo_url": "https://github.com/redis-developer/helplanet",
